@@ -1,1 +1,1 @@
-
+Using my own knowledge and image of my cmd i can say that that my laptop's CPU is Intel64, have 8 GB of RAM, 152 gb of free space, Microsoft Windows 11 Pro, and enabled virtualisation.
