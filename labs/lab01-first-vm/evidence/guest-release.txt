@@ -1,0 +1,21 @@
+bostan@Innotech:~$ lsb_release -a
+No LSB modules are available.
+Distributor ID: Ubuntu
+Description:    Ubuntu 26.04.1 LTS
+Release:        26.04
+Codename:       resolute
+bostan@Innotech:~$ hostname
+Innotech
+bostan@Innotech:~$ nproc
+3
+bostan@Innotech:~$ free -h
+               total        used        free      shared  buff/cache   available
+Mem:           1.6Gi       362Mi       979Mi       1.0Mi       444Mi       1.2Gi
+Swap:             0B          0B          0B
+bostan@Innotech:~$ df -h /
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda2        25G  3.7G   20G  16% /
+bostan@Innotech:~$ ip -br a
+lo               UNKNOWN        127.0.0.1/8 ::1/128
+enp0s3           UP             10.0.2.15/24 metric 100 fd17:625c:f037:2:a00:27ff:fef6:b791/64 fe80::a00:27ff:fef6:b791/64
+bostan@Innotech:~$
