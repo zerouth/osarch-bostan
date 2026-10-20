@@ -32,6 +32,6 @@ I initially tried to use the "systeminfo" command, but it could not provide the 
 
 - [evidence/](evidence/) — one line per file on what it proves
 - [evidence/cpu.txt](evidence/cpu.txt) — proves CPU model, core and thread count
-- [evidence/memory.txt](evidence/memory.txt) — proves memory capacity, module count, and speed
-- [evidence/disk.txt](evidence/disk.txt) — proves disk model, SSD type, and remaining free space
+- [evidence/memory.txt](evidence/memory.txt.png) — proves memory capacity, module count, and speed
+- [evidence/disk.txt](evidence/disk.txt.png) — proves disk model, SSD type, and remaining free space
 - [evidence/system.txt](evidence/system.txt) — proves BIOS version, UEFI type, and virtualization status
