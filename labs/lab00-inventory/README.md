@@ -6,19 +6,32 @@ Date:
 
 ## What I did
 
-Steps, with commands in code blocks. Not prose about the steps.
+Used PowerShell to collect hardware information.
 
-```
-<command>
-<output, trimmed>
-```
+`Get-CimInstance Win32_Processor | Select-Object Name, NumberOfCores, NumberOfLogicalProcessors`
+`Get-CimInstance Win32_PhysicalMemory`
+`Get-PhysicalDisk`
+`Get-Volume`
+`Get-ComputerInfo`
 
 ## Result
 
+| What | Value | Where I got it |
+|---|---|---|
+| CPU model, cores, threads | 11th Gen Intel(R) Core(TM) i5-11400H @ 2.70GHz, 6 cores, 12 threads | `Get-CimInstance Win32_Processor \| Select-Object Name, NumberOfCores, NumberOfLogicalProcessors` |
+| Total memory, modules, speed | 8 GB total, 1 module, 3200 MHz | `Get-CimInstance Win32_PhysicalMemory` |
+| Disk model, type, free space | NVMe WDC PC SN530 (SSD), 102.53 GB free on C: | `Get-PhysicalDisk` and `Get-Volume` |
+| Firmware (BIOS/UEFI), version, date | UEFI, version V1.22, date 15.07.2026 | `Get-ComputerInfo` |
+| Hardware virtualization enabled? | Yes | `Get-ComputerInfo` |
+
 ## What did not work the first time
 
-At least one thing. What I saw, what it turned out to be, what I did about it.
+I initially tried to use the "systeminfo" command, but it could not provide the CPU core count, memory modules, disk model, and free space. I had to use specific WMI/CIM commands like Win32_Processor and Get-PhysicalDisk to get the accepted values.
 
 ## Evidence
 
 - [evidence/](evidence/) — one line per file on what it proves
+- [evidence/cpu.txt](evidence/cpu.txt) — proves CPU model, core and thread count
+- [evidence/memory.txt](evidence/memory.txt) — proves memory capacity, module count, and speed
+- [evidence/disk.txt](evidence/disk.txt) — proves disk model, SSD type, and remaining free space
+- [evidence/system.txt](evidence/system.txt) — proves BIOS version, UEFI type, and virtualization status
