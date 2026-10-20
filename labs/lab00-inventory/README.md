@@ -1,8 +1,8 @@
 # Lab 0 — Inventory your own machine
 
-Pair: Bostan Temirlan / None
-Driver first half: Bostan Temirlan
-Machine: Acer Nitro AN515-57
+Pair: Bostan Temirlan / None,
+Driver first half: Bostan Temirlan,
+Machine: Acer Nitro AN515-57,
 Date: 20.10.2026 (New Try).
 
 ## What I did
