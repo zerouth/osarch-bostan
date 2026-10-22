@@ -16,21 +16,21 @@ Date: 23.10.2026
 ssh -p 2222 bostan@127.0.0.1
 lsb_release -a 
 ```
-1. Powered off the VM and created a snapshot named clean-install.
+4. Powered off the VM and created a snapshot named clean-install.
 
-2. Intentionally broke the OS configuration by removing the hostname file:
+5. Intentionally broke the OS configuration by removing the hostname file:
 
 ```bash
 sudo rm /etc/hostname
 sudo reboot
 ```
 
-1. Reconnected via SSH and verified that the hostname file was missing:
+6. Reconnected via SSH and verified that the hostname file was missing:
 
 ```bash
 cat /etc/hostname
 ```
-1. Powered off the VM and rolled back to the clean-install snapshot using VirtualBox Snapshot Manager.
+7. Powered off the VM and rolled back to the clean-install snapshot using VirtualBox Snapshot Manager.
 
 Resource Justification:
 I allocated 2 GB of RAM, 3 vCPUs, and a 25 GB dynamic disk to this VM. I chose these values based on my host machine's total specs measured in Lab 0 to ensure the guest operates smoothly while leaving enough host memory and CPU capacity for Windows to run without freezing.
