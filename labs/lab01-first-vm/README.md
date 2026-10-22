@@ -39,10 +39,10 @@ Initially, my SSH connection attempt via ssh -p 2222 bostan@127.0.0.1 failed wit
 
 - [evidence/](evidence/) — one line per file on what it proves
 
-- [evidence/](vm-settings.png/) — shows the configured 2 GB RAM, 3 vCPUs, and disk allocation in VirtualBox.
+- [evidence/vm-settings.png](evidence/vm-settings.png) — screenshot of VirtualBox settings showing 2 GB RAM, 3 vCPUs, and 25 GB disk allocation.
 
-- [evidence/](guest-release.txt/) — SSH terminal output verifying the guest is running Ubuntu Server.
+- [evidence/guest-release.txt](evidence/guest-release.txt) — terminal output of `lsb_release -a` proving Ubuntu Server is installed inside the guest.
 
-- [evidence/](broken.png/) — screenshot showing the file missing error after removing /etc/hostname.
+- [evidence/broken.png](evidence/broken.png) — screenshot showing `cat: /etc/hostname: No such file or directory`, proving system breakage.
 
-- [evidence/](snapshot-list.png/) — screenshot showing Current State restored to the clean-install snapshot.
+- [evidence/snapshot-list.png](evidence/snapshot-list.png) — screenshot of the VirtualBox Snapshot Manager showing Current State under clean-install.
