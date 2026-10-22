@@ -9,18 +9,15 @@ Date: 23.10.2026
 1. Created a new Virtual Machine in VirtualBox and installed Ubuntu Server 26.04 LTS (console only).
 2. Configured Port Forwarding in VirtualBox (Host Port 2222 to Guest Port 22) to enable SSH access from PowerShell.
 3. Connected to the guest via SSH and saved the release information:
+```bash
 ssh -p 2222 bostan@127.0.0.1
 lsb_release -a
 
-4. Powered off the VM and created a snapshot named clean-install.
-5. Intentionally broke the OS configuration by removing the hostname file:
-sudo rm /etc/hostname
-sudo reboot
+1. Reconnected via SSH and verified that the hostname file was missing:
 
-6. Reconnected via SSH and verified that the hostname file was missing:
 cat /etc/hostname
 
-7. Powered off the VM and rolled back to the clean-install snapshot using VirtualBox Snapshot Manager.
+1. Powered off the VM and rolled back to the clean-install snapshot using VirtualBox Snapshot Manager.
 
 Resource Justification:
 I allocated 2 GB of RAM, 3 vCPUs, and a 25 GB dynamic disk to this VM. I chose these values based on my host machine's total specs measured in Lab 0 to ensure the guest operates smoothly while leaving enough host memory and CPU capacity for Windows to run without freezing.
