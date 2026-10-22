@@ -2,7 +2,7 @@
 
 Pair: Bostan Temirlan (No Pair)
 
-Machine: Temirlan (Host), lab01-ubuntu (Guest)
+Machine: Temirlan (Host),  Innotech (Guest).
 
 Date: 23.10.2026
 
