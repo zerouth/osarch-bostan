@@ -1,37 +1,7 @@
-Caption              : Физическая память
-Description          : Физическая память
-InstallDate          :
-Name                 : Физическая память
-Status               :
-CreationClassName    : Win32_PhysicalMemory
-Manufacturer         : Samsung
-Model                :
-OtherIdentifyingInfo :
-PartNumber           : M471A1K43EB1-CWE
-PoweredOn            :
-SerialNumber         : 41D99283
-SKU                  :
-Tag                  : Physical Memory 4
-Version              :
-HotSwappable         :
-Removable            :
-Replaceable          :
-FormFactor           : 12
-BankLabel            : BANK 0
-Capacity             : 8589934592
-DataWidth            : 64
-InterleavePosition   : 1
-MemoryType           : 0
-PositionInRow        :
-Speed                : 3200
-TotalWidth           : 64
-Attributes           : 1
-ConfiguredClockSpeed : 3200
-ConfiguredVoltage    : 1200
-DeviceLocator        : Controller1-ChannelA-DIMM0
-InterleaveDataDepth  : 1
-MaxVoltage           : 0
-MinVoltage           : 0
-SMBIOSMemoryType     : 26
-TypeDetail           : 128
-PSComputerName       :
+Number FriendlyName                        SerialNumber                             MediaType CanPool OperationalStatus
+------ ------------                        ------------                             --------- ------- -----------------
+0      NVMe WDC PC SN530 SDBPNPZ-512G-1114 E823_8FA6_BF53_0001_001B_444A_4997_D536. SSD       False   OK
+
+DriveLetter FriendlyName FileSystemType DriveType HealthStatus OperationalStatus SizeRemaining      Size
+----------- ------------ -------------- --------- ------------ ----------------- -------------      ----
+C                        NTFS           Fixed     Healthy      OK                    104.74 GB 377.61 GB
