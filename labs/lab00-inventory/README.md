@@ -29,6 +29,8 @@ Used PowerShell to collect hardware information.
 
 I initially tried to use the "systeminfo" command, but it could not provide the CPU core count, memory modules, disk model, and free space. I had to use specific WMI/CIM commands like Win32_Processor and Get-PhysicalDisk to get the accepted values.
 
+I also noticed that `cpu.txt` showed `VirtualizationFirmwareEnabled False` even though virtualization is enabled. This happens because Windows reports it as False when Hyper-V is already running. I confirmed it is actually on because my `system.txt` output shows `HyperVisorPresent True`.
+
 ## Evidence
 
 - [evidence/](evidence/) — one line per file on what it proves
