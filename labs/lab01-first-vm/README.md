@@ -1,6 +1,6 @@
 # Lab 1 — Your first virtual machine
 
-Pair: Bostan Temirlan (No Pair)
+Pair: Bostan Temirlan / No Pair
 
 Machine: Temirlan (Host),  Innotech (Guest).
 
