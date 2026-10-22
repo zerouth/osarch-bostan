@@ -35,13 +35,15 @@ cat /etc/hostname
 Resource Justification:
 I allocated 2 GB of RAM, 3 vCPUs, and a 25 GB dynamic disk to this VM. I chose these values based on my host machine's total specs measured in Lab 0 to ensure the guest operates smoothly while leaving enough host memory and CPU capacity for Windows to run without freezing.
 
-Result
+## Result
+
 The virtual machine was successfully set up, broken by removing critical host configuration, and fully restored using the clean-install snapshot rollback.
 
-What did not work the first time
+## What did not work the first time
+
 Initially, my SSH connection attempt via ssh -p 2222 bostan@127.0.0.1 failed with "Connection refused" because VirtualBox was closed or the VM was not running. I realized that Port Forwarding requires the virtual machine to be actively running in the background, so I started the VM first and then successfully connected.
 
-Evidence
+## Evidence
 
 - [evidence/vm-settings.png](evidence/vm-settings.png) — screenshot of VirtualBox settings showing 2 GB RAM, 3 vCPUs, and 25 GB disk allocation.
 - [evidence/guest-release.txt](evidence/guest-release.txt) — terminal output of `lsb_release -a` proving Ubuntu Server is installed inside the guest.
