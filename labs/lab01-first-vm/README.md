@@ -12,7 +12,8 @@ Date: 23.10.2026
 
 ```bash
 ssh -p 2222 bostan@127.0.0.1
-lsb_release -a
+lsb_release -a 
+```
 Powered off the VM and created a snapshot named clean-install.
 
 Intentionally broke the OS configuration by removing the hostname file:
