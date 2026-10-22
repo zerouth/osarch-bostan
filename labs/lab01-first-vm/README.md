@@ -38,3 +38,11 @@ Initially, my SSH connection attempt via ssh -p 2222 bostan@127.0.0.1 failed wit
 ## Evidence
 
 - [evidence/](evidence/) — one line per file on what it proves
+
+- [evidence/](vm-settings.png/) — shows the configured 2 GB RAM, 3 vCPUs, and disk allocation in VirtualBox.
+
+- [evidence/](guest-release.txt/) — SSH terminal output verifying the guest is running Ubuntu Server.
+
+- [evidence/](broken.png/) — screenshot showing the file missing error after removing /etc/hostname.
+
+- [evidence/](snapshot-list.png/) — screenshot showing Current State restored to the clean-install snapshot.
