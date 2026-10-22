@@ -1,7 +1,9 @@
 # Lab 1 — Your first virtual machine
 
-Pair: Bostan Temirlan (No Pair)    Driver first half: Bostan
+Pair: Bostan Temirlan (No Pair)
+
 Machine: Temirlan (Host), lab01-ubuntu (Guest)
+
 Date: 23.10.2026
 
 ## What I did
