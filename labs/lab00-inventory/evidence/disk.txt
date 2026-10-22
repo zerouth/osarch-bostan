@@ -1,7 +1,12 @@
+PS C:\WINDOWS\System32> Get-PhysicalDisk
+
 Number FriendlyName                        SerialNumber                             MediaType CanPool OperationalStatus
 ------ ------------                        ------------                             --------- ------- -----------------
 0      NVMe WDC PC SN530 SDBPNPZ-512G-1114 E823_8FA6_BF53_0001_001B_444A_4997_D536. SSD       False   OK
 
+
+PS C:\WINDOWS\System32> Get-Volume C
+
 DriveLetter FriendlyName FileSystemType DriveType HealthStatus OperationalStatus SizeRemaining      Size
 ----------- ------------ -------------- --------- ------------ ----------------- -------------      ----
-C                        NTFS           Fixed     Healthy      OK                    104.74 GB 377.61 GB
+C                        NTFS           Fixed     Healthy      OK                    104.73 GB 377.61 GB
