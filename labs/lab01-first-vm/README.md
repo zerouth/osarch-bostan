@@ -18,13 +18,16 @@ Powered off the VM and created a snapshot named clean-install.
 
 Intentionally broke the OS configuration by removing the hostname file:
 
-Bash
+```bash
 sudo rm /etc/hostname
 sudo reboot
+```
+
 Reconnected via SSH and verified that the hostname file was missing:
 
-Bash
+```bash
 cat /etc/hostname
+```
 Powered off the VM and rolled back to the clean-install snapshot using VirtualBox Snapshot Manager.
 
 Resource Justification:
@@ -37,10 +40,10 @@ What did not work the first time
 Initially, my SSH connection attempt via ssh -p 2222 bostan@127.0.0.1 failed with "Connection refused" because VirtualBox was closed or the VM was not running. I realized that Port Forwarding requires the virtual machine to be actively running in the background, so I started the VM first and then successfully connected.
 
 Evidence
-evidence/vm-settings.png — screenshot of VirtualBox settings showing 2 GB RAM, 3 vCPUs, and 25 GB disk allocation.
+- [evidence/](vm-settings.png) — screenshot of VirtualBox settings showing 2 GB RAM, 3 vCPUs, and 25 GB disk allocation.
 
-evidence/guest-release.txt — terminal output of lsb_release -a proving Ubuntu Server is installed inside the guest.
+- [evidence/](guest-release.txt) — terminal output of lsb_release -a proving Ubuntu Server is installed inside the guest.
 
-evidence/broken.png — screenshot showing cat: /etc/hostname: No such file or directory, proving system breakage.
+- [evidence/](broken.png) — screenshot showing cat: /etc/hostname: No such file or directory, proving system breakage.
 
-evidence/snapshot-list.png — screenshot of VirtualBox Snapshot Manager showing Current State directly under clean-install.
+- [evidence/](snapshot-list.png) — screenshot of VirtualBox Snapshot Manager showing Current State directly under clean-install.
