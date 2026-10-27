@@ -55,3 +55,5 @@ Initially, my SSH connection attempt via ssh -p 2222 bostan@127.0.0.1 failed wit
 - [evidence/guest-release.txt](evidence/guest-release.txt) — terminal output of `lsb_release -a` proving Ubuntu Server is installed inside the guest.
 - [evidence/broken.png](evidence/broken.png) — screenshot showing `cat: /etc/hostname: No such file or directory`, proving system breakage.
 - [evidence/snapshot-list.png](evidence/snapshot-list.png) — snapshot list taken after rollback and verifying hostname restoration.
+- [evidence/port-forwarding.jpg](evidence/port-forwarding.jpg) —  Port forwarding rule (Host 2222 to Guest 22).
+- [evidence/restored-check.jpg](evidence/restored-check.jpg) — check inside the guest confirming restoration.
