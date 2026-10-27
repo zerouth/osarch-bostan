@@ -32,8 +32,13 @@ cat /etc/hostname
 ```
 7. Powered off the VM and rolled back to the clean-install snapshot using VirtualBox Snapshot Manager.
 
+8. Booted the VM, reconnected via SSH, and confirmed the hostname was restored:
+```bash
+cat /etc/hostname
+```
+
 Resource Justification:
-I allocated 2 GB of RAM, 3 vCPUs, and a 25 GB dynamic disk to this VM. I chose these values based on my host machine's total specs measured in Lab 0 to ensure the guest operates smoothly while leaving enough host memory and CPU capacity for Windows to run without freezing.
+I allocated 2 GB of RAM, 3 vCPUs, and 25 GB disk. My host (from Lab 0) is an Intel Core i5-11400H with 6 cores / 12 threads and 8 GB RAM. Windows consumes ~4.5 GB of RAM at idle, so allocating 2 GB leaves ~1.5 GB for host stability while running the console guest smoothly.
 
 ## Result
 
@@ -48,4 +53,4 @@ Initially, my SSH connection attempt via ssh -p 2222 bostan@127.0.0.1 failed wit
 - [evidence/vm-settings.png](evidence/vm-settings.png) — screenshot of VirtualBox settings showing 2 GB RAM, 3 vCPUs, and 25 GB disk allocation.
 - [evidence/guest-release.txt](evidence/guest-release.txt) — terminal output of `lsb_release -a` proving Ubuntu Server is installed inside the guest.
 - [evidence/broken.png](evidence/broken.png) — screenshot showing `cat: /etc/hostname: No such file or directory`, proving system breakage.
-- [evidence/snapshot-list.png](evidence/snapshot-list.png) — screenshot of VirtualBox Snapshot Manager showing Current State directly under clean-install.
+- [evidence/snapshot-list.png](evidence/snapshot-list.png) — snapshot list taken after rollback and verifying hostname restoration.
