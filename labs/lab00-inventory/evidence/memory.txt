@@ -1,3 +1,5 @@
+Get-CimInstance -ClassName Win32_PhysicalMemory | Format-List *
+
 Caption              : Физическая память
 Description          : Физическая память
 InstallDate          :
