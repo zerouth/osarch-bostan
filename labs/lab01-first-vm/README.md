@@ -37,12 +37,12 @@ cat /etc/hostname
 cat /etc/hostname
 ```
 
+## Resource Justification:
+I allocated 2 GB of RAM, 3 vCPUs, and a 25 GB dynamic disk to this VM. I chose these values based on my host machine's total specs measured in Lab 0 (Intel Core i5-11400H with 6 cores / 12 threads, 8 GB total RAM). Since Windows 11 uses about 4.5 GB of RAM at idle, allocating 2 GB to the VM leaves roughly 1.5 GB free for the host to remain stable, while giving the guest enough resources to run a console-only OS smoothly.
+
 ## Result
 
 The virtual machine was successfully set up, broken by removing critical host configuration, and fully restored using the clean-install snapshot rollback.
-
-**Resource Justification:**
-I allocated 2 GB of RAM, 3 vCPUs, and a 25 GB dynamic disk to this VM. I chose these values based on my host machine's total specs measured in Lab 0 (Intel Core i5-11400H with 6 cores / 12 threads, 8 GB total RAM). Since Windows 11 uses about 4.5 GB of RAM at idle, allocating 2 GB to the VM leaves roughly 1.5 GB free for the host to remain stable, while giving the guest enough resources to run a console-only OS smoothly.
 
 
 ## What did not work the first time
