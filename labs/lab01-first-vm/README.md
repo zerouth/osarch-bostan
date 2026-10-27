@@ -38,7 +38,7 @@ cat /etc/hostname
 ```
 
 Resource Justification:
-I allocated 2 GB of RAM, 3 vCPUs, and 25 GB disk. My host (from Lab 0) is an Intel Core i5-11400H with 6 cores / 12 threads and 8 GB RAM. Windows consumes ~4.5 GB of RAM at idle, so allocating 2 GB leaves ~1.5 GB for host stability while running the console guest smoothly.
+I allocated 2 GB of RAM, 3 vCPUs, and a 25 GB dynamic disk to this VM. I chose these values based on my host machine's total specs measured in Lab 0 (Intel Core i5-11400H with 6 cores / 12 threads, 8 GB total RAM). Since Windows 11 uses about 4.5 GB of RAM at idle, allocating 2 GB to the VM leaves roughly 1.5 GB free for the host to remain stable, while giving the guest enough resources to run a console-only OS smoothly.
 
 ## Result
 
