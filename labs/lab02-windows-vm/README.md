@@ -52,5 +52,8 @@ Date: 03.11.2026
 
 ## Evidence
 
-- [evidence/](evidence/) — one line per file on what it proves
-- [evidence/](evidence/)
+- [evidence/ipconfig-windows.txt](evidence/ipconfig-windows.txt) — Windows guest IP address and configuration
+- [evidence/ip-addr-linux.txt](evidence/ip-addr-linux.txt) — Ubuntu guest IP address configuration
+- [evidence/ping-both-ways.txt](evidence/ping-both-ways.txt) — ping evidence in both directions and to the internet
+- [evidence/host-memory-before.png](evidence/host-memory-before.png) — host Task Manager memory view before launching guests
+- The `host-memory-after.png` evidence file was intentionally omitted because the overcommitment experiment was aborted to prevent host failure (justified in the report).
