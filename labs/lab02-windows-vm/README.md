@@ -59,3 +59,11 @@ Date: 03.11.2026
 - [evidence/ping-both-ways.txt](evidence/ping-both-ways.txt) — ping evidence in both directions and to the internet
 - [evidence/host-memory-before.png](evidence/host-memory-before.png) — host Task Manager memory view before launching guests
 - The `host-memory-after.png` screenshot could not be captured because allocating more than 2 GB crashed and froze the host operating system completely.
+
+#### Use of AI assistants
+
+| Assignment | Tool | What for |
+| :--- | :--- | :--- |
+| Lab 2 | Gemini | Structuring reports, PowerShell firewall syntax, memory limit justification |
+
+
