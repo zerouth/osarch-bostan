@@ -1,15 +1,17 @@
 # Operating System Architecture — build log
 
-**Student:**
-**Group:**
-**Host machine:**
-**Hypervisor:**
-**Guest operating systems:**
+**Student:** Bostan Temirlan  
+**Group:** SE-2301 *(укажи свою группу)*  
+**Host machine:** Intel Core i5-11400H, 8 GB RAM, Windows 11  
+**Hypervisor:** Oracle VirtualBox 7.x  
+**Guest operating systems:** Ubuntu Server 24.04 LTS (Innotech), Windows 11 Enterprise Evaluation (lab02-windows)
 
-## Labs
+---
+
+#### Labs
 
 | # | Topic | Folder | Status |
-|---|-------|--------|--------|
+| :--- | :--- | :--- | :--- |
 | 0 | Inventory your own machine | [labs/lab00-inventory](labs/lab00-inventory) | |
 | 1 | Your first virtual machine | [labs/lab01-first-vm](labs/lab01-first-vm) | |
 | 2 | A Windows guest, and a network | [labs/lab02-windows-vm](labs/lab02-windows-vm) | |
@@ -24,25 +26,30 @@
 | 11 | One tool, two shells | [labs/lab11-two-shells](labs/lab11-two-shells) | |
 | 12 | Onboarding, twice | [labs/lab12-identity](labs/lab12-identity) | |
 
-## Tickets
+---
+
+#### Tickets
 
 | # | Title | Folder | Submitted |
-|---|-------|--------|-----------|
-| 1 | VM build document | [tickets/ticket1-vm-build-doc](tickets/ticket1-vm-build-doc) | |
+| :--- | :--- | :--- | :--- |
+| 1 | VM build document | [tickets/ticket1-vm-build-doc](tickets/ticket1-vm-build-doc) | Submitted |
 | 2 | Office hardware specification | [tickets/ticket2-office-spec](tickets/ticket2-office-spec) | |
 | 3 | Network fault diagnosis | [tickets/ticket3-network-fault](tickets/ticket3-network-fault) | |
 | 4 | HR staff report script | [tickets/ticket4-hr-csv](tickets/ticket4-hr-csv) | |
 | 5 | Onboarding and offboarding | [tickets/ticket5-onboarding](tickets/ticket5-onboarding) | |
 
-## Tool of the Week
+---
 
-Week __ — `____` : [tools/____.md](tools/)
+#### Tool of the Week
 
-## Use of AI assistants
+Week __ — ____ : [tools/____.md](tools)
+
+---
+
+#### Use of AI assistants
 
 | Assignment | Tool | What for |
-|------------|------|----------|
-| | | |
+| :--- | :--- | :--- |
+| Ticket 1 | Gemini | Support engineer ticket analysis, structuring build documentation for non-IT users |
 
-> Declaring this costs nothing. Not declaring it, when it comes up at the
-> defence, costs the assignment.
+Declaring this costs nothing. Not declaring it, when it comes up at the defence, costs the assignment.
