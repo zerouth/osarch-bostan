@@ -39,9 +39,16 @@ Date: 03.11.2026
 
 ## What did not work the first time
 
-1. Host freezing under 4 GB VM allocation: The lab guide recommended 4 GB RAM for the Windows 11 guest[cite: 8]. With Ubuntu already assigned 4 GB and the host having only 8 GB total (with ~7.0 GB in use), allocating 4 GB caused total host freezing[cite: 8]. I resolved this by scaling the Windows VM allocation down to 2 GB for stable operation[cite: 8].
+1. **Inbound ping blocked by Windows Defender Firewall:**
+   - **What I saw:** Pinging `lab02-windows` (10.0.2.4) from Ubuntu (`Innotech`) resulted in 100% packet loss and request timeouts.
+   - **What it turned out to be:** Windows Defender Firewall classifies new virtual network interfaces under the Public network profile by default, which silently drops incoming ICMPv4 echo requests (Type 8).
+   - **What I did:** Rather than disabling the entire firewall (which violates course security requirements and incurs a mark penalty), I opened PowerShell as Administrator on the Windows guest and created an explicit inbound rule allowing ICMPv4:
+     `New-NetFirewallRule -DisplayName "Allow ping in (ICMPv4)" -Protocol ICMPv4 -IcmpType 8 -Direction Inbound -Action Allow`
 
-2. Firewall dropping ICMP echo: Pinging from Ubuntu (Innotech) to Windows (lab02-windows) timed out with 100% loss due to Windows Defender Firewall blocking ICMP on the Public network profile[cite: 8]. I resolved it by creating an explicit inbound rule via New-NetFirewallRule instead of disabling the firewall[cite: 8].
+2. **Host memory pressure under standard 4 GB allocation:**
+   - **What I saw:** Assigning 4 GB of RAM to the Windows guest while Ubuntu was running caused severe host stutter, mouse input lag, and excessive SSD disk swapping.
+   - **What it turned out to be:** My physical host only has 8 GB of RAM, and Windows 11 host background processes already consume ~7.0 GB at idle (leaving only ~799 MB available). Allocating 4 GB to Ubuntu and 4 GB to Windows created extreme physical memory exhaustion.
+   - **What I did:** Scaled the Windows 11 virtual machine allocation down to 2 GB for stable operation, and intentionally aborted the physical execution of the 10 GB (5 GB + 5 GB) overcommitment stress test to prevent host system failure.
 
 ## Evidence
 
