@@ -56,4 +56,4 @@ Date: 03.11.2026
 - [evidence/ip-addr-linux.txt](evidence/ip-addr-linux.txt) — Ubuntu guest IP address configuration
 - [evidence/ping-both-ways.txt](evidence/ping-both-ways.txt) — ping evidence in both directions and to the internet
 - [evidence/host-memory-before.png](evidence/host-memory-before.png) — host Task Manager memory view before launching guests
-- The `host-memory-after.png` evidence file was intentionally omitted because the overcommitment experiment was aborted to prevent host failure (justified in the report).
+- The `host-memory-after.png` screenshot could not be captured because the host OS froze completely during the 5 GB + 5 GB overcommitment attempt.
