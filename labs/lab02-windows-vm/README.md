@@ -29,11 +29,19 @@ Date: 03.11.2026
 
 ## Result
 
-ResultMetricBefore (Guests Off)After (Both Overcommitted)Host RAM in use7.0 GBN/A (Aborted)Available799 MBN/A (Aborted)Committed / Swap used12.8 / 24.8 GBN/A (Aborted)What I noticedBaseline Windows 11 idle memory state is already at 90% utilization.Launching 10 GB of virtual RAM on a host with only 799 MB available physical RAM would cause severe swap thrashing and freeze the host OS completely. The experiment was safely aborted to preserve system stability.
+
+| Metric | Before (Guests Off) | After (Both Overcommitted) |
+| :--- | :--- | :--- |
+| **Host RAM in use** | 7.0 GB | N/A (Aborted) |
+| **Available** | 799 MB | N/A (Aborted) |
+| **Committed / Swap used** | 12.8 / 24.8 GB | N/A (Aborted) |
+| **What I noticed** | Baseline Windows 11 idle memory state is already at 90% utilization. | Launching 10 GB of virtual RAM on a host with only 799 MB available physical RAM would cause severe swap thrashing and freeze the host OS completely. The experiment was safely aborted to preserve system stability. |
 
 ## What did not work the first time
 
-At least one thing. What I saw, what it turned out to be, what I did about it.
+1. Host freezing under 4 GB VM allocation: The lab guide recommended 4 GB RAM for the Windows 11 guest[cite: 8]. With Ubuntu already assigned 4 GB and the host having only 8 GB total (with ~7.0 GB in use), allocating 4 GB caused total host freezing[cite: 8]. I resolved this by scaling the Windows VM allocation down to 2 GB for stable operation[cite: 8].
+
+2. Firewall dropping ICMP echo: Pinging from Ubuntu (Innotech) to Windows (lab02-windows) timed out with 100% loss due to Windows Defender Firewall blocking ICMP on the Public network profile[cite: 8]. I resolved it by creating an explicit inbound rule via New-NetFirewallRule instead of disabling the firewall[cite: 8].
 
 ## Evidence
 
