@@ -1,7 +1,7 @@
 # Operating System Architecture — build log
 
 **Student:** Bostan Temirlan  
-**Group:** SE-2301 *(укажи свою группу)*  
+**Group:** CYB26-6  
 **Host machine:** Intel Core i5-11400H, 8 GB RAM, Windows 11  
 **Hypervisor:** Oracle VirtualBox 7.x  
 **Guest operating systems:** Ubuntu Server 24.04 LTS (Innotech), Windows 11 Enterprise Evaluation (lab02-windows)
