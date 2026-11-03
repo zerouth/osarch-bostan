@@ -1,0 +1,8 @@
+bostan@Innotech:~$ uname -a
+Linux Innotech 6.8.0-40-generic #40-Ubuntu SMP PREEMPT_DYNAMIC Tue Jul 30 18:00:00 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
+bostan@Innotech:~$ lsb_release -a
+No LSB modules are available.
+Distributor ID: Ubuntu
+Description:    Ubuntu 24.04 LTS
+Release:        24.04
+Codename:       noble
