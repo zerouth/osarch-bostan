@@ -16,7 +16,7 @@ Date: 04.11.2026 (Second Try)
 2. Connected both VMs to VirtualBox `NAT Network` (`osarch-net`) for inter-guest communication and internet access, as bridged mode fails on campus Wi-Fi due to MAC filtering and standard NAT isolates guests behind separate routers.
 3. Allowed inbound ICMPv4 Type 8 traffic in Windows via PowerShell (`New-NetFirewallRule`) to enable ping without disabling Windows Defender Firewall.
 4. Verified bidirectional ping between guests and out to the internet (`ubuntu.com`).
-5. Measured baseline host RAM (7.0 GB / 90% in use on an 8 GB host) and kept allocations at safe limits (Ubuntu 4 GB, Windows 2 GB) to avoid catastrophic host lockup.
+5. Measured baseline host RAM (5.8 GB / 74% in use), conducted memory overcommit by allocating 5 GB to each VM (10 GB total on an 8 GB host), recorded metrics under memory pressure, and returned allocations to safe limits (2 GB each).
 
 ## Network diagram
 
