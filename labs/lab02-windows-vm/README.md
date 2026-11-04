@@ -8,7 +8,7 @@ Machine: Host (Intel Core i5-11400H, 8 GB RAM, 6 cores / 12 threads)
 
 Guests: Innotech (Ubuntu Server 26.04) + lab02-windows (Windows 11 Enterprise eval)
 
-Date: 03.11.2026
+Date: 04.11.2026 (Second Try)
 
 ## What I did
 
