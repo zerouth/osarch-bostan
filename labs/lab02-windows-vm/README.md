@@ -31,13 +31,14 @@ Date: 03.11.2026
 
 ## Result
 
+| Metric | Before (Host Idle + VMs off) | After (Both VMs booted at 5 GB each) | Delta / Observed Impact |
+| :--- | :--- | :--- | :--- |
+| In use (Memory) | 5.8 GB (74%) | 7.1 GB (91%) | +1.3 GB physical RAM consumed |
+| Available | 2.0 GB | 731 MB | Memory dropped near starvation limit |
+| Committed | 12.1 / 24.8 GB | 21.2 / 24.8 GB | +9.1 GB virtual address space allocated |
+| Compressed Memory | 508 MB | 684 MB | Windows compressed cold pages |
 
-| Metric | Before (Guests Off) | After (Both Overcommitted) |
-| :--- | :--- | :--- |
-| **Host RAM in use** | 7.0 GB | N/A (Aborted) |
-| **Available** | 799 MB | N/A (Aborted) |
-| **Committed / Swap used** | 12.8 / 24.8 GB | N/A (Aborted) |
-| **What I noticed** | Baseline Windows 11 idle memory state is already at 90% utilization. | Launching 10 GB of virtual RAM on a host with only 799 MB available physical RAM would cause severe swap thrashing and freeze the host OS completely. The experiment was safely aborted to preserve system stability. |
+**Observation:** Allocating 10 GB of virtual memory across guests exceeded physical RAM (8 GB). The host OS avoided a system crash because VirtualBox allocates guest memory dynamically on demand. As the VMs booted, the Windows virtual memory manager expanded the pagefile on the SSD, increasing total committed memory from 12.1 GB to 21.2 GB and activating memory compression (684 MB).
 
 ## What did not work the first time
 
@@ -57,8 +58,9 @@ Date: 03.11.2026
 - [evidence/ipconfig-windows.txt](evidence/ipconfig-windows.txt) — Windows guest IP address and configuration
 - [evidence/ip-addr-linux.txt](evidence/ip-addr-linux.txt) — Ubuntu guest IP address configuration
 - [evidence/ping-both-ways.txt](evidence/ping-both-ways.txt) — ping evidence in both directions and to the internet
-- [evidence/host-memory-before.png](evidence/host-memory-before.png) — host Task Manager memory view before launching guests
-- The `host-memory-after.png` screenshot could not be captured because allocating more than 2 GB crashed and froze the host operating system completely.
+- [evidence/host-memory-before.png](evidence/host-memory-before.png) — Task Manager memory tab before overcommit (5.8 GB used)
+- [evidence/host-memory-after.png](evidence/host-memory-after.png) — Task Manager memory tab during overcommit (7.1 GB used, 21.2 GB committed)
+
 
 #### Use of AI assistants
 
