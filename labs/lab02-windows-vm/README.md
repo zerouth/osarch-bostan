@@ -44,11 +44,6 @@ Date: 03.11.2026
 
 The initial ICMP echo test from Ubuntu to Windows (`ping 10.0.2.4`) failed with 100% packet loss. Inspection of Windows Defender Firewall showed that the virtual network adapter was assigned to the `Public` network profile by default, which blocks all incoming unsolicited traffic including echo requests. Instead of disabling the firewall entirely, I created a specific inbound rule allowing ICMPv4 Type 8 packets via PowerShell. Pings succeeded immediately after rule activation.
 
-2. **Host memory pressure under standard 4 GB allocation:**
-   - **What I saw:** Assigning 4 GB of RAM to the Windows guest while Ubuntu was running caused severe host stutter, mouse input lag, and excessive SSD disk swapping.
-   - **What it turned out to be:** My physical host only has 8 GB of RAM, and Windows 11 host background processes already consume ~7.0 GB at idle (leaving only ~799 MB available). Allocating 4 GB to Ubuntu and 4 GB to Windows created extreme physical memory exhaustion.
-   - **What I did:** Scaled the Windows 11 virtual machine allocation down to 2 GB for stable operation, and intentionally aborted the physical execution of the 10 GB (5 GB + 5 GB) overcommitment stress test to prevent host system failure.
-
 ## Evidence
 
 - [evidence/ipconfig-windows.txt](evidence/ipconfig-windows.txt) — Windows guest IP address and configuration
@@ -56,12 +51,3 @@ The initial ICMP echo test from Ubuntu to Windows (`ping 10.0.2.4`) failed with 
 - [evidence/ping-both-ways.txt](evidence/ping-both-ways.txt) — ping evidence in both directions and to the internet
 - [evidence/host-memory-before.png](evidence/host-memory-before.png) — Task Manager memory tab before overcommit (5.8 GB used)
 - [evidence/host-memory-after.png](evidence/host-memory-after.png) — Task Manager memory tab during overcommit (7.1 GB used, 21.2 GB committed)
-
-
-#### Use of AI assistants
-
-| Assignment | Tool | What for |
-| :--- | :--- | :--- |
-| Lab 2 | Gemini | Structuring reports, PowerShell firewall syntax, memory limit justification |
-
-
