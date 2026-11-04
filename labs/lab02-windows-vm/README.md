@@ -42,11 +42,7 @@ Date: 03.11.2026
 
 ## What did not work the first time
 
-1. **Inbound ping blocked by Windows Defender Firewall:**
-   - **What I saw:** Pinging `lab02-windows` (10.0.2.4) from Ubuntu (`Innotech`) resulted in 100% packet loss and request timeouts.
-   - **What it turned out to be:** Windows Defender Firewall classifies new virtual network interfaces under the Public network profile by default, which silently drops incoming ICMPv4 echo requests (Type 8).
-   - **What I did:** Rather than disabling the entire firewall (which violates course security requirements and incurs a mark penalty), I opened PowerShell as Administrator on the Windows guest and created an explicit inbound rule allowing ICMPv4:
-     `New-NetFirewallRule -DisplayName "Allow ping in (ICMPv4)" -Protocol ICMPv4 -IcmpType 8 -Direction Inbound -Action Allow`
+The initial ICMP echo test from Ubuntu to Windows (`ping 10.0.2.4`) failed with 100% packet loss. Inspection of Windows Defender Firewall showed that the virtual network adapter was assigned to the `Public` network profile by default, which blocks all incoming unsolicited traffic including echo requests. Instead of disabling the firewall entirely, I created a specific inbound rule allowing ICMPv4 Type 8 packets via PowerShell. Pings succeeded immediately after rule activation.
 
 2. **Host memory pressure under standard 4 GB allocation:**
    - **What I saw:** Assigning 4 GB of RAM to the Windows guest while Ubuntu was running caused severe host stutter, mouse input lag, and excessive SSD disk swapping.
