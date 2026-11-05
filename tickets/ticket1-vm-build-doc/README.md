@@ -29,7 +29,7 @@ Date: 03.11.2026
 - [evidence/03-network-adapter.png](evidence/03-network-adapter.png) — shows the NAT Network assignment
 - [evidence/04-guest-uname.txt](evidence/04-guest-uname.txt) — proves Ubuntu 24.04 OS identity
 - [evidence/05-ping-between-guests.txt](evidence/05-ping-between-guests.txt) — proves network connectivity
-- [evidence/06-snapshot-list.png](evidence/06-snapshot-list.png) — proves a clean rollback snapshot exists for both VMs
+- [evidence/06-snаpshot-list.png](evidence/06-snаpshot-list.png) — proves a clean rollback snapshot exists for both VMs
 
 ## What did not work the first time
 While writing the documentation, I initially forgot to specify that Windows 11 requires "Enable EFI" and "Virtual TPM 2.0" in VirtualBox. When testing the build steps, the Windows installer threw an "Unsupported Hardware" error. I had to discard the VM, update the documentation with the strict TPM/EFI requirements, and rebuild it successfully.
