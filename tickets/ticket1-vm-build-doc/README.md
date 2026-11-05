@@ -10,7 +10,7 @@ Date: 03.11.2026
 ## 2. What was actually needed
 * **Missing context:** The request omits the specific OS stack (Linux for backend, Windows for tools), the physical host's 8 GB RAM limitation, and whether the machine needs internet access or network isolation. 
 * **Where it was wrong:** "Nothing special" severely underestimates the complexity. A proper setup requires configuring UEFI, virtual TPM, NAT Networks, and strict resource limits to prevent host crashes. It also ignores the target audience: the office manager needs explicit, non-technical instructions, not developer jargon.
-* **Licensing:** The request assumes any OS can be installed. In a corporate environment, we must use strictly legal trial images (Ubuntu LTS and Windows 11 Enterprise Evaluation) to maintain compliance.
+* **Licensing:** The request assumes any OS can be installed. In a corporate environment, we must use strictly legal trial images (Ubuntu 24.04 LTS and Windows 11 Enterprise Evaluation) to maintain compliance.
 * **Assumptions:** I assumed strict allocations of 2 GB RAM per VM (based on the host idling at 5.8 GB measured in Lab 2) and mandated VirtualBox snapshots to fulfill the "without breaking anything" requirement.
 
 * **Questions for Aigerim:** What tech stack does the developer need (Linux backend or Windows tools)? What are the hardware specs of the target laptop? Does the VM need external internet or complete network isolation?
@@ -27,7 +27,7 @@ Date: 03.11.2026
 - [evidence/01-nеw-vm-wizard.png](evidence/01-nеw-vm-wizard.png) — shows 2 vCPU and memory limits during creation
 - [evidence/02-disk-settings.png](evidence/02-disk-settings.png) — shows dynamically allocated disk choice
 - [evidence/03-network-adapter.png](evidence/03-network-adapter.png) — shows the NAT Network assignment
-- [evidence/04-guest-uname.txt](evidence/04-guest-uname.txt) — proves Ubuntu 26.04 OS identity
+- [evidence/04-guest-uname.txt](evidence/04-guest-uname.txt) — proves Ubuntu 24.04 OS identity
 - [evidence/05-ping-between-guests.txt](evidence/05-ping-between-guests.txt) — proves network connectivity
 - [evidence/06-snapshot-list.png](evidence/06-snapshot-list.png) — proves a clean rollback snapshot exists for both VMs
 
