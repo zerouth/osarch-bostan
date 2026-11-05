@@ -145,5 +145,3 @@ When the developer encounters a corrupted system state, broken configuration, or
 
 
 ```
-
-```
