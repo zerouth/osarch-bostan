@@ -24,7 +24,7 @@ Date: 03.11.2026
 6. Took a `clean-install` snapshot for instant rollback.
 
 ## 4. Evidence
-- [evidence/01-new-vm-wizard.png](evidence/01-new-vm-wizard.png) — shows 2 vCPU and memory limits during creation
+- [evidence/01-nеw-vm-wizard.png](evidence/01-nеw-vm-wizard.png) — shows 2 vCPU and memory limits during creation
 - [evidence/02-disk-settings.png](evidence/02-disk-settings.png) — shows dynamically allocated disk choice
 - [evidence/03-network-adapter.png](evidence/03-network-adapter.png) — shows the NAT Network assignment
 - [evidence/04-guest-uname.txt](evidence/04-guest-uname.txt) — proves Ubuntu 26.04 OS identity
