@@ -2,7 +2,7 @@
 
 Pair: Bostan Temirlan (No Pair)  
 Machine: Host (Intel Core i5-11400H, 8 GB RAM, 6 cores / 12 threads), Guests: Innotech (Ubuntu 24.04) + lab02-windows (Windows 11)
-Date: 03.11.2026
+Date: 05.11.2026
 
 ## 1. What was asked
 "Hi, we have someone starting on Monday and he needs a test computer set up. Nothing special, just so he can try things without breaking anything. Can you write down how to do it so I can do the next one myself? Thanks"
