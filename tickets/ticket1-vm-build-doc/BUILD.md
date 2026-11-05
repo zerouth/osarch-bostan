@@ -1,4 +1,3 @@
-```markdown
 # Developer Test Machine — Rebuild Guide
 
 **Target Audience:** Office Management / IT Onboarding (Aigerim T.)  
