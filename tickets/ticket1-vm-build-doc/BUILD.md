@@ -8,7 +8,7 @@
 ## Prerequisites: What to Download
 
 1. **Hypervisor (Oracle VirtualBox 7.x & Extension Pack):** Download from virtualbox.org. It is free for educational and evaluation use under the VirtualBox PUEL/GPL licence.
-2. **Ubuntu Server 26.04 LTS ISO:** Download the Server ISO from ubuntu.com. Server edition has no graphical desktop environment, saving host CPU and RAM.
+2. **Ubuntu Server 24.04 LTS ISO:** Download the Server ISO from ubuntu.com. Server edition has no graphical desktop environment, saving host CPU and RAM.
 3. **Windows 11 Enterprise Evaluation ISO:** Download legally from the Microsoft Evaluation Center. This provides a legal 90-day sandbox environment without purchasing retail product keys.
 
 ---
@@ -36,7 +36,7 @@
 > **Why 2 GB RAM and Dynamically Allocated:** Our host laptops have 8 GB of RAM total, and Windows 11 idle background processes occupy ~5.8 GB. Allocating more than 2 GB to the VM saturates physical RAM and freezes the host laptop completely. A dynamically allocated disk only consumes real SSD space when data is actually written.
 
 **OS Installation Steps:**
-1. Go to VM **Settings** -> **Storage**, mount the Ubuntu 26.04 ISO to the optical drive, and click **Start**.
+1. Go to VM **Settings** -> **Storage**, mount the Ubuntu 24.04 ISO to the optical drive, and click **Start**.
 2. Select **English** language and **English (US)** keyboard layout.
 3. Choose **Ubuntu Server (minimized)** to save resources.
 4. Leave the network interface on DHCP (it will receive a 10.0.2.x address later).
