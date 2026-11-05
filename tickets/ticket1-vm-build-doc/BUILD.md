@@ -28,7 +28,7 @@
 1. Click **New** in the VirtualBox top toolbar.
 2. Set Name: `Innotech`, Type: `Linux`, Version: `Ubuntu (64-bit)`.
 3. In Hardware settings, set Base Memory to **2048 MB (2 GB)** and Processors to **2 vCPU**.
-4. In the Virtual Hard Disk screen, select **Create a Virtual Hard Disk Now**. Set File size to **20.00 GB** and select **Dynamically allocated** (Thin Provisioning). Click **Finish**.
+4. In the Virtual Hard Disk screen, select **Create a Virtual Hard Disk Now**. Set File size to **25.00 GB** and select **Dynamically allocated** (Thin Provisioning). Click **Finish**.
 
 ![](evidence/01-new-vm-wizard.png)
 ![](evidence/02-disk-settings.png)
