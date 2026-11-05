@@ -2,7 +2,6 @@
 
 Pair: Bostan Temirlan (No Pair)  
 Machine: Host (Intel Core i5-11400H, 8 GB RAM, 6 cores / 12 threads), Guests: Innotech (Ubuntu 24.04) + lab02-windows (Windows 11)
-
 Date: 05.11.2026
 
 ## 1. What was asked
