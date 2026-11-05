@@ -141,7 +141,3 @@ When the developer encounters a corrupted system state, broken configuration, or
 2. **Guests cannot ping each other:**
 * *Cause:* An adapter was left on standard NAT instead of NAT Network, or the Windows firewall rule was skipped.
 * *Fix:* Ensure both VMs use `osarch-net` (Step 5) and re-run the PowerShell firewall command in Windows (Step 7).
-
-
-
-```
