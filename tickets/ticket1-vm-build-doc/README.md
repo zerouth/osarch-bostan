@@ -18,7 +18,7 @@ Date: 03.11.2026
 ## 3. What I did
 1. Selected Oracle VirtualBox over Hyper-V or VMware because it is open-source, easily scriptable, and natively supports the required `NAT Network` isolation without complex Windows networking setups.
 2. Downloaded legal Evaluation ISOs for Ubuntu Server and Windows 11.
-3. Built both VMs with 2 vCPUs, exactly 2048 MB RAM, and 20.00 GB dynamically allocated disks.
+3. Built both VMs with 2 vCPUs, exactly 2048 MB RAM.
 4. Created a `NAT Network` (`osarch-net`) and attached both VMs to allow internet and inter-VM communication.
 5. Opened Windows Defender Firewall via PowerShell to allow ICMPv4 pinging.
 6. Took a `clean-install` snapshot for instant rollback.
