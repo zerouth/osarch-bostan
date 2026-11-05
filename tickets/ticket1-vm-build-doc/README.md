@@ -1,37 +1,36 @@
-# Ticket 1 — VM build document
+# Ticket 1 — New developer starts Monday, needs a test machine
+
+Pair: Bostan Temirlan (No Pair)  
+Machine: Host (Intel Core i5-11400H, 8 GB RAM, 6 cores / 12 threads), Guests: Innotech (Ubuntu 26.04) + lab02-windows (Windows 11)  
+Date: 03.11.2026
 
 ## 1. What was asked
-> "From: Aigerim T. (Office Manager)
-> Subject: test machine for new dev
-> Hi, we have someone starting on Monday and he needs a test computer set up. Nothing special, just so he can try things without breaking anything. Can you write down how to do it so I can do the next one myself? Thanks"
+"Hi, we have someone starting on Monday and he needs a test computer set up. Nothing special, just so he can try things without breaking anything. Can you write down how to do it so I can do the next one myself? Thanks"
 
 ## 2. What was actually needed
-What the request left out: It does not specify the OS (a developer needs both Linux and Windows), the host laptop's memory/disk limits, or network requirements (whether it needs internet or isolated networking).
-Where the request is wrong: "Nothing special" is incorrect; setting up VMs requires BIOS virtualization, specific RAM limits, and snapshot configuration.
-What I would have asked Aigerim: What OS does the developer need? How much RAM does the host laptop have? Does the VM need internet access?
-What I assumed instead: I assumed dual VMs (Ubuntu Server and Windows 11), a strict 2 GB RAM limit per guest (since our host laptops only have 8 GB total and idle around 7 GB), and a NAT Network to provide internet while keeping guests securely in the same subnet. I also assumed the need for immediate snapshots to satisfy the "without breaking anything" requirement.
+* **Missing context:** The request omits the specific OS stack (Linux for backend, Windows for tools), the physical host's 8 GB RAM limitation, and whether the machine needs internet access or network isolation. 
+* **Where it was wrong:** "Nothing special" severely underestimates the complexity. A proper setup requires configuring UEFI, virtual TPM, NAT Networks, and strict resource limits to prevent host crashes. It also ignores the target audience: the office manager needs explicit, non-technical instructions, not developer jargon.
+* **Licensing:** The request assumes any OS can be installed. In a corporate environment, we must use strictly legal trial images (Ubuntu LTS and Windows 11 Enterprise Evaluation) to maintain compliance.
+* **Assumptions:** I assumed strict allocations of 2 GB RAM per VM (based on the host idling at 5.8 GB measured in Lab 2) and mandated VirtualBox snapshots to fulfill the "without breaking anything" requirement.
 
 ## 3. What I did
-1. Installed Ubuntu Server 24.04 and Windows 11 Enterprise Evaluation in VirtualBox.
-2. Allocated exactly 2048 MB RAM and 2 vCPUs for each to prevent the 8 GB host from crashing.
-3. Used Dynamically allocated disks (25 GB Linux, 64 GB Windows) to save physical space.
-4. Created a `NAT Network` (`osarch-net`) for both guests to allow them to communicate and reach the internet.
-5. In Windows, allowed inbound ICMPv4 Type 8 via PowerShell to enable ping tests without disabling the firewall.
-6. Shut down both VMs and took a `clean-install` snapshot for instant rollback.
-
-| Setting | Default | Mine | Why |
-| :--- | :--- | :--- | :--- |
-| **RAM** | 4 GB (Win) | 2 GB | Host only has 8 GB total; 4 GB causes complete host freeze. |
-| **Disk** | Fixed | Dynamically allocated | Saves real SSD space on the laptop. |
-| **Network** | NAT | NAT Network | Allows guests to ping each other while keeping internet access. |
+1. Selected Oracle VirtualBox over Hyper-V or VMware because it is open-source, easily scriptable, and natively supports the required `NAT Network` isolation without complex Windows networking setups.
+2. Downloaded legal Evaluation ISOs for Ubuntu Server and Windows 11.
+3. Built both VMs with 2 vCPUs and exactly 2048 MB RAM.
+4. Created a `NAT Network` (`osarch-net`) and attached both VMs to allow internet and inter-VM communication.
+5. Opened Windows Defender Firewall via PowerShell to allow ICMPv4 pinging.
+6. Took a `clean-install` snapshot for instant rollback.
 
 ## 4. Evidence
-- [evidence/01-new-vm-wizard.png](evidence/01-new-vm-wizard.png) — shows CPU and RAM limits during creation
-- [evidence/02-disk-settings.png](evidence/02-disk-settings.png) — shows dynamically allocated disk selection
-- [evidence/03-network-adapter.png](evidence/03-network-adapter.png) — shows NAT Network mode selection
-- [evidence/04-guest-uname.txt](evidence/04-guest-uname.txt) — output of `uname -a` and `lsb_release -a` inside Linux
-- [evidence/05-ping-between-guests.txt](evidence/05-ping-between-guests.txt) — ping output proving guests can see each other and the internet
-- [evidence/06-snapshot-list.png](evidence/06-snapshot-list.png) — shows the clean-install snapshot for rollback
+- [evidence/01-new-vm-wizard.png](evidence/01-new-vm-wizard.png) — shows 2 vCPU and memory limits during creation
+- [evidence/02-disk-settings.png](evidence/02-disk-settings.png) — shows dynamically allocated disk choice
+- [evidence/03-network-adapter.png](evidence/03-network-adapter.png) — shows the NAT Network assignment
+- [evidence/04-guest-uname.txt](evidence/04-guest-uname.txt) — proves Ubuntu 26.04 OS identity
+- [evidence/05-ping-between-guests.txt](evidence/05-ping-between-guests.txt) — proves network connectivity
+- [evidence/06-snapshot-list.png](evidence/06-snapshot-list.png) — proves a clean rollback snapshot exists for both VMs
+
+## What did not work the first time
+While writing the documentation, I initially forgot to specify that Windows 11 requires "Enable EFI" and "Virtual TPM 2.0" in VirtualBox. When testing the build steps, the Windows installer threw an "Unsupported Hardware" error. I had to discard the VM, update the documentation with the strict TPM/EFI requirements, and rebuild it successfully.
 
 ## 5. What I would do differently
-Next time, I would write an automated script (like a Vagrantfile) instead of giving the office manager a manual GUI guide, to prevent them from accidentally allocating too much RAM and freezing the machine.
+Next time, instead of giving the office manager a manual GUI guide, I would provide an automated Vagrantfile script. Running one script eliminates human error and guarantees identical configurations every time.
