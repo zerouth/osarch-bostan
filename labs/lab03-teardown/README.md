@@ -43,7 +43,7 @@ Source: https://www.intel.com/content/www/us/en/products/sku/230495/specificatio
 
 ![ASUS PRIME B650M-A page](evidence/photos/asus-b650m-a.png)
 ![ASUS PRIME B650M-A tech specs](evidence/photos/asus-b650m-a-specs.png)
-![ASUS PRIME B650M-A tech specs](evidence/asus-b650m-a-cpu-support.png)
+![ASUS PRIME B650M-A tech specs](evidence/asus-b650m-a-cpu-support)
 
 **What it is:** micro-ATX motherboard built on the **AMD B650** chipset.
 
