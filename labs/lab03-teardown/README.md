@@ -53,7 +53,9 @@ Source: https://www.intel.com/content/www/us/en/products/sku/230495/specificatio
 
 **Limit:** AM5 processors only and DDR5 only — an Intel CPU or a DDR4 module physically does not fit.
 
-Source: https://asus.com/motherboards-components/motherboards/prime/prime-b650m-a/techspec
+Source: https://www.asus.com/motherboards-components/motherboards/prime/prime-b650m-a/
+https://asus.com/motherboards-components/motherboards/prime/prime-b650m-a/techspec
+https://www.asus.com/motherboards-components/motherboards/prime/prime-b650m-a/helpdesk_qvl_cpu?model2Name=PRIME-B650M-A
 
 ### 4. MSI PRO B760M-A WIFI DDR4
 
