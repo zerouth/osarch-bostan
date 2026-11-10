@@ -122,7 +122,7 @@ Source: https://www.crucial.com/memory/ddr4/ct16g4dfra32a
 
 **Limit:** the slot. It needs an M.2 slot wired for PCIe, and the link runs at the slower side: a PCIe 5.0 slot gives it nothing extra, a PCIe 3.0 slot would slow it down.
 
-Source: https://www.samsung.com/ca/memory-storage/nvme-ssd/990-pro-1tb-nvme-pcie-gen-4-mz-v9p1t0b-am
+Source: https://www.samsung.com/in/memory-storage/nvme-ssd/990-pro-1tb-nvme-pcie-gen-4-mz-v9p1t0bw/
 
 ### 8. Samsung 870 EVO 1 TB
 
@@ -135,7 +135,7 @@ Source: https://www.samsung.com/ca/memory-storage/nvme-ssd/990-pro-1tb-nvme-pcie
 
 **Limit:** the SATA bus. About 550 MB/s is the ceiling of the interface, however fast the flash inside is. That is roughly 13 times slower than the 990 PRO.
 
-Source: https://www.samsung.com/uk/memory-storage/sata-ssd/870-evo-1tb-sata-3-2-5-ssd-mz-77e1t0b-eu
+Source: https://www.samsung.com/sg/memory-storage/sata-ssd/870-evo-1tb-sata-3-2-5-ssd-mz-77e1t0bw/
 
 ### 9. Corsair RM750e (750 W)
 
