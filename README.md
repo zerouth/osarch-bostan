@@ -51,6 +51,8 @@ Week __ — ____ : [tools/____.md](tools)
 | Assignment | Tool | What for |
 | :--- | :--- | :--- |
 | Ticket 1 | Gemini | Support engineer ticket analysis, structuring build documentation for non-IT users |
+| Lab 1 | Gemini | Step-by-step VM setup guidance, README structure and wording |
+| Lab 2 | Gemini | Windows guest and NAT network setup guidance, README structure and wording |
 | Lab 3 | Claude | Part specs lookup, README structure and wording |
 
 Declaring this costs nothing. Not declaring it, when it comes up at the defence, costs the assignment.
