@@ -51,6 +51,7 @@ Week __ — ____ : [tools/____.md](tools)
 | Assignment | Tool | What for |
 | :--- | :--- | :--- |
 | Ticket 1 | Gemini | Support engineer ticket analysis, structuring build documentation for non-IT users |
+| Lab 0 | Gemini | Command explanations, README structure and wording |
 | Lab 1 | Gemini | Step-by-step VM setup guidance, README structure and wording |
 | Lab 2 | Gemini | Windows guest and NAT network setup guidance, README structure and wording |
 | Lab 3 | Claude | Part specs lookup, README structure and wording |
