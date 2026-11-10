@@ -94,7 +94,9 @@ https://www.msi.com/Motherboard/PRO-B760M-A-WIFI-DDR4/support#cpu
 
 **Limit:** DDR5 boards only. The advertised 5600 MT/s needs the profile to be switched on in the BIOS, and it is above the DDR5-5200 that AMD rates the Ryzen 5 7600 for.
 
-Source: https://www.kingston.com/en/memory/gaming/kingston-fury-beast-ddr5-memory · Datasheet: https://www.kingston.com/datasheets/KF556C40BB-16.pdf
+Source: https://www.kingston.com/en/memory/gaming/kingston-fury-beast-ddr5-memory
+
+Datasheet: https://www.kingston.com/datasheets/KF556C40BB-16.pdf
 
 ### 6. Crucial DDR4-3200, 16 GB DIMM
 
