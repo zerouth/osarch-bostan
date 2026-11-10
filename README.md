@@ -15,7 +15,7 @@
 | 0 | Inventory your own machine | [labs/lab00-inventory](labs/lab00-inventory) | Submitted |
 | 1 | Your first virtual machine | [labs/lab01-first-vm](labs/lab01-first-vm) | Submitted |
 | 2 | A Windows guest, and a network | [labs/lab02-windows-vm](labs/lab02-windows-vm) | Submitted |
-| 3 | Teardown | [labs/lab03-teardown](labs/lab03-teardown) | |
+| 3 | Teardown | [labs/lab03-teardown](labs/lab03-teardown) | Submitted |
 | 4 | Partition, mirror, fail, recover | [labs/lab04-storage](labs/lab04-storage) | |
 | 5 | Encoding forensics | [labs/lab05-encoding](labs/lab05-encoding) | |
 | 6 | Live processes and memory pressure | [labs/lab06-processes](labs/lab06-processes) | |
@@ -51,5 +51,6 @@ Week __ — ____ : [tools/____.md](tools)
 | Assignment | Tool | What for |
 | :--- | :--- | :--- |
 | Ticket 1 | Gemini | Support engineer ticket analysis, structuring build documentation for non-IT users |
+| Lab 3 | Claude | Part specs lookup, README structure and wording |
 
 Declaring this costs nothing. Not declaring it, when it comes up at the defence, costs the assignment.
