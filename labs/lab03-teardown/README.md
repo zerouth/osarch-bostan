@@ -214,7 +214,7 @@ Windows is the host (real hardware). Linux is the Ubuntu guest in VirtualBox, so
 
 ## What did not work the first time
 
-TODO
+The first set of specification screenshots did not prove my captions. My first plan was one specification screenshot per part. For the Intel Core i5-13400 that was the “Memory Specifications” block only. When I checked each caption against its screenshots, I saw that the caption also gives the core count, clocks, cache, power, integrated graphics and socket, and none of that was visible in the memory block. The rule I used after that: every number in a caption must be readable on at least one screenshot. I added separate screenshots for the Intel CPU Specifications, Memory + GPU Specifications and Package Specifications, the Ryzen Graphics Capabilities and the ASUS Storage section.
 
 ## Evidence
 
