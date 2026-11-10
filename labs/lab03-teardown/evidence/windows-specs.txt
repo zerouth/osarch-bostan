@@ -1,0 +1,35 @@
+﻿PS> Get-CimInstance Win32_Processor | Select Name, NumberOfCores, NumberOfLogicalProcessors, MaxClockSpeed
+
+Name                                           NumberOfCores NumberOfLogicalProcessors MaxClockSpeed
+----                                           ------------- ------------------------- -------------
+11th Gen Intel(R) Core(TM) i5-11400H @ 2.70GHz             6                        12          2688
+
+
+PS> Get-CimInstance Win32_PhysicalMemory | Select DeviceLocator, Capacity, Speed, ConfiguredClockSpeed, SMBIOSMemoryType, FormFactor
+
+
+DeviceLocator        : Controller1-ChannelA-DIMM0
+Capacity             : 8589934592
+Speed                : 3200
+ConfiguredClockSpeed : 3200
+SMBIOSMemoryType     : 26
+FormFactor           : 12
+
+
+
+PS> Get-PhysicalDisk | Select FriendlyName, MediaType, BusType, Size
+
+FriendlyName                        MediaType BusType         Size
+------------                        --------- -------         ----
+NVMe WDC PC SN530 SDBPNPZ-512G-1114 SSD       RAID    512110190592
+
+
+PS> Get-Volume C
+
+DriveLetter FriendlyName FileSystemType DriveType HealthStatus OperationalStatus SizeRemaining      Size
+----------- ------------ -------------- --------- ------------ ----------------- -------------      ----
+C                        NTFS           Fixed     Healthy      OK                      87.4 GB 377.61 GB
+
+
+PS> $env:PROCESSOR_ARCHITECTURE
+AMD64
