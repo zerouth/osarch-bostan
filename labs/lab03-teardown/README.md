@@ -148,7 +148,7 @@ Source: https://www.samsung.com/sg/memory-storage/sata-ssd/870-evo-1tb-sata-3-2-
 
 **Limit:** 750 W for everything in the case — and there is one of it for two computers.
 
-Source: https://www.corsair.com/p/CP-9020262-EU
+Source: https://www.corsair.com/us/en/p/psu/cp-9020262-na/rme-series-rm750e-fully-modular-low-noise-atx-power-supply-cp-9020262-na
 
 ### 10. Stock cooler — AMD Wraith Stealth
 
