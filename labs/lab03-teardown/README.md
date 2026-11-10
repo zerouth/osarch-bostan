@@ -75,7 +75,13 @@ https://www.asus.com/motherboards-components/motherboards/prime/prime-b650m-a/he
 
 **Limit:** LGA1700 processors only and DDR4 only, although the CPU itself could also run DDR5.
 
-Source: https://www.msi.com/Motherboard/PRO-B760M-A-WIFI-DDR4/Specification
+Sources: 
+
+https://www.msi.com/Motherboard/PRO-B760M-A-WIFI-DDR4
+
+https://www.msi.com/Motherboard/PRO-B760M-A-WIFI-DDR4/Specification
+
+https://www.msi.com/Motherboard/PRO-B760M-A-WIFI-DDR4/support#cpu
 
 ### 5. Kingston FURY Beast DDR5-5600, 16 GB
 
