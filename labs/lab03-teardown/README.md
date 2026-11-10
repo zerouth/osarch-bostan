@@ -53,7 +53,7 @@ Source: https://www.intel.com/content/www/us/en/products/sku/230495/specificatio
 
 **Limit:** AM5 processors only and DDR5 only — an Intel CPU or a DDR4 module physically does not fit.
 
-Source: 
+Sources: 
 
 https://www.asus.com/motherboards-components/motherboards/prime/prime-b650m-a/
 
