@@ -30,6 +30,7 @@ Source: https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/am
 ![Core i5-13400 page](evidence/photos/i5-13400.png)
 ![Core i5-13400 specifications](evidence/photos/i5-13400-cpu-specs.png)
 ![Core i5-13400 specifications](evidence/photos/i5-13400-memory.png)
+![Core i5-13400 specifications](evidence/photos/i5-13400-socket.png)
 **What it is:** desktop CPU with 10 cores (6 Performance + 4 Efficient) and 16 threads, turbo up to 4.6 GHz, 20 MB cache, 65 W base power and 148 W maximum turbo power, integrated UHD Graphics 730.
 
 **Connects to:** socket **LGA1700** (Intel writes FCLGA1700). The memory controller takes **DDR4 up to 3200 MT/s or DDR5 up to 4800 MT/s**, up to 192 GB.
