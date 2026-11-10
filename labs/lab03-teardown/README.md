@@ -72,7 +72,7 @@ https://www.asus.com/motherboards-components/motherboards/prime/prime-b650m-a/he
 
 **Connects to:** socket **LGA 1700**; **4 × DDR4** slots, up to 128 GB, 3200 MHz as JEDEC and up to 5333+ only as overclock, dual channel, non-ECC unbuffered, Intel XMP; 2 × M.2 (M.2_1 from the CPU, PCIe 4.0 x4; M.2_2 from the chipset, PCIe 4.0 x4 or SATA mode); 4 × SATA 6G. SATA8 is disabled when an M.2 SATA SSD is installed in M2_2.
 
-**CPU generations:** Intel Core 14th / 13th / 12th Gen, Pentium Gold, Celeron. In MSI's compatibility list the i5-13400 (Raptor Lake, 2.5 GHz, 20 MB L3, 65 W, UHD Graphics 730) is listed in steppings B0 and C0, both with BIOS **7D99v10** — version 1.0, the first BIOS of this board (7D99 is MSI's code for it). So the CPU works without a BIOS update.
+**CPU generations:** Intel Core 14th / 13th / 12th Gen, Pentium Gold, Celeron. In MSI's compatibility list the i5-13400 (Raptor Lake, 2.5 GHz, 20 MB L3, 65 W, UHD Graphics 730) is listed in steppings B0 and C0, both with BIOS **7D99v10** (7D99 is MSI's code for this board, v10 is version 1.0). I did not check MSI's BIOS download list, so I cannot say whether an older BIOS exists that would need an update.
 
 **Limit:** LGA1700 processors only and DDR4 only, although the CPU itself could also run DDR5.
 
@@ -187,7 +187,7 @@ How I split the parts: the socket goes first. One CPU is AM5, the other is LGA17
 | Part | Model | Why it fits here |
 |---|---|---|
 | Processor | Intel Core i5-13400 | needs socket LGA1700 |
-| Motherboard | MSI PRO B760M-A WIFI DDR4 | has socket LGA1700; MSI lists the i5-13400 (B0 and C0) from its first BIOS |
+| Motherboard | MSI PRO B760M-A WIFI DDR4 | has socket LGA1700; MSI lists the i5-13400 (B0 and C0) with BIOS 7D99v10 |
 | Memory | Crucial DDR4-3200 16 GB DIMM | board has DDR4 slots only; 3200 MT/s is exactly the top DDR4 speed of this CPU and the board's JEDEC speed |
 | SSD | Samsung 870 EVO 1 TB | SATA drive to one of 4 SATA 6G ports |
 
@@ -224,7 +224,7 @@ Windows is the host (real hardware). Linux is the Ubuntu guest in VirtualBox, so
 
 - [evidence/photos/ryzen5-7600.png](evidence/photos/ryzen5-7600.png), [ryzen5-7600-specs.png](evidence/photos/ryzen5-7600-specs.png) — AMD page: 6 cores / 12 threads, 65 W, AM5, DDR5, Wraith Stealth in the box, Radeon Graphics
 - [evidence/photos/i5-13400.png](evidence/photos/i5-13400.png), [i5-13400-cpu-specs.png](evidence/photos/i5-13400-cpu-specs.png), [i5-13400-memory.png](evidence/photos/i5-13400-memory.png), [i5-13400-socket.png](evidence/photos/i5-13400-socket.png) — Intel page: 10 cores / 16 threads, DDR5-4800 or DDR4-3200, UHD Graphics 730, FCLGA1700
-- [evidence/photos/asus-b650m-a.png](evidence/photos/asus-b650m-a.png), [asus-b650m-a-specs.png](evidence/photos/asus-b650m-a-specs.png), [asus-b650m-a-cpu-suppоrt.png](evidence/photos/asus-b650m-a-cpu-suppоrt.png) — ASUS board: AM5, B650, DDR5 slots, M.2 and SATA, CPU support list
+- [evidence/photos/asus-b650m-a.png](evidence/photos/asus-b650m-a.png), [asus-b650m-a-specs.png](evidence/photos/asus-b650m-a-specs.png), [asus-b650m-a-cpu-support.png](evidence/photos/asus-b650m-a-cpu-support.png) — ASUS board: AM5, B650, DDR5 slots, M.2 and SATA, CPU support list
 - [evidence/photos/msi-b760m-a-ddr4.png](evidence/photos/msi-b760m-a-ddr4.png), [msi-b760m-a-ddr4-specs.png](evidence/photos/msi-b760m-a-ddr4-specs.png), [msi-specs-cpu-chipset.png](evidence/photos/msi-specs-cpu-chipset.png) — MSI board: LGA1700, B760, DDR4 slots, M.2 and SATA; compatibility list with the i5-13400 and BIOS 7D99v10
 - [evidence/photos/kingston-ddr5-5600.png](evidence/photos/kingston-ddr5-5600.png), [kingston-ddr5-5600-specs.png](evidence/photos/kingston-ddr5-5600-specs.png) — Kingston module: DDR5, 288 pins, JEDEC 4800, XMP 5600
 - [evidence/photos/crucial-ddr4-3200.png](evidence/photos/crucial-ddr4-3200.png), [crucial-ddr4-3200-specs.png](evidence/photos/crucial-ddr4-3200-specs.png) — Crucial module: DDR4 UDIMM, 16 GB, DDR4-3200, CL22, 1.2 V
