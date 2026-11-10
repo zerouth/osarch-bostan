@@ -65,6 +65,7 @@ https://www.asus.com/motherboards-components/motherboards/prime/prime-b650m-a/he
 
 ![MSI PRO B760M-A WIFI DDR4 page](evidence/photos/msi-b760m-a-ddr4.png)
 ![MSI PRO B760M-A WIFI DDR4 specification](evidence/photos/msi-b760m-a-ddr4-specs.png)
+![MSI PRO B760M-A WIFI DDR4 specification](evidence/photos/msi-specs-cpu-chipset.png)
 
 **What it is:** micro-ATX motherboard built on the **Intel B760** chipset.
 
