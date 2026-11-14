@@ -1,8 +1,10 @@
 # Lab 4 — Partition, mirror, fail, recover
 
-Pair: Bostan Temirlan (No Pair) · Driver first half: Bostan · Date: 15.11.2026 · Hypervisor: VirtualBox
+Pair: Bostan Temirlan (No Pair) · Driver first half: Bostan · Date: 14–15.11.2026 · Hypervisor: VirtualBox
 
-Machine: Host Acer Nitro AN515-57 (Windows 11), guests: VM "Windows" (Windows 11, from Lab 2) and VM "Ubuntu" (Ubuntu Server, from Lab 1). New disks: `lab04-win` (1 GB) for Windows, `lab04-d1`, `lab04-d2`, `lab04-d3` (1 GB each, dynamically allocated, same SATA controller as the system disk) for Ubuntu.
+Machine: Host Acer Nitro AN515-57 (Windows 11), guests: VM "Windows" (Windows 11 Enterprise Evaluation, from Lab 2) and VM "Ubuntu" (Ubuntu Server 26.04 LTS, hostname Innotech, from Lab 1). New disks: `lab04-win` (1 GB) for Windows, `lab04-d1`, `lab04-d2`, `lab04-d3` (1 GB each, dynamically allocated, same SATA controller as the system disk) for Ubuntu.
+
+Time note: the work ran across midnight. The Windows part started on 14.11 at about 23:54 Almaty time. The Ubuntu guest clock is UTC, so the evidence timestamps "Sat Nov 14 19:11–20:01 UTC" are 15.11.2026, 00:11–01:01 in Almaty (UTC+5).
 
 ## Windows
 
@@ -116,7 +118,7 @@ Rebuild:
 
 ```bash
 sudo mdadm /dev/md0 --add /dev/sdd1
-cat /proc/mdstat
+watch -n 1 cat /proc/mdstat    # until [2/2] [UU], then Ctrl+C
 sudo mdadm --detail --scan | sudo tee -a /etc/mdadm/mdadm.conf
 sudo update-initramfs -u
 ```
@@ -141,7 +143,7 @@ No. RAID 1 writes every change to both disks at the same moment, so the deletion
 
 **What I saw:** while `sudo apt install -y mdadm` was still running I started typing the next command and pressed Ctrl+Z instead of waiting. The shell printed `[1]+  Stopped  sudo apt install -y mdadm`. The mdadm binary was already unpacked, so `mdadm --create` still worked, but apt stayed frozen in the background. After `fg` it hung for about 10 minutes with no output.
 
-**What it was:** Ctrl+Z does not stop a program, it suspends it (SIGTSTP) as a background job. The suspended apt kept the dpkg lock, and after `fg` it was waiting at the needrestart "Scanning processes" step, which the terminal did not redraw.
+**What it was:** Ctrl+Z does not stop a program, it suspends it (SIGTSTP) and leaves it as a stopped background job. A stopped apt keeps the dpkg lock, so any other apt command would fail until it finishes. After `fg` it most likely sat at the needrestart "Scanning processes" step, which the terminal did not redraw — I did not confirm the exact step.
 
 **What I did:** interrupted it properly with Ctrl+C, then finished the package setup and checked the result:
 
