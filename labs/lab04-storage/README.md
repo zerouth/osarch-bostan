@@ -1,6 +1,6 @@
 # Lab 4 — Partition, mirror, fail, recover
 
-Pair: Bostan Temirlan (No Pair) · Date: 15.11.2026 · Hypervisor: VirtualBox
+Pair: Bostan Temirlan (No Pair) · Driver first half: Bostan · Date: 15.11.2026 · Hypervisor: VirtualBox
 
 Machine: Host Acer Nitro AN515-57 (Windows 11), guests: VM "Windows" (Windows 11, from Lab 2) and VM "Ubuntu" (Ubuntu Server, from Lab 1). New disks: `lab04-win` (1 GB) for Windows, `lab04-d1`, `lab04-d2`, `lab04-d3` (1 GB each, dynamically allocated, same SATA controller as the system disk) for Ubuntu.
 
