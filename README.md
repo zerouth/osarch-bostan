@@ -4,7 +4,7 @@
 **Group:** CYB26-6  
 **Host machine:** Intel Core i5-11400H, 8 GB RAM, Windows 11  
 **Hypervisor:** Oracle VirtualBox 7.x  
-**Guest operating systems:** Ubuntu Server 24.04 LTS (Innotech), Windows 11 Enterprise Evaluation (lab02-windows)
+**Guest operating systems:** Ubuntu Server 26.04 LTS (VM "Ubuntu", hostname Innotech), Windows 11 Enterprise Evaluation (VM "Windows")
 
 ---
 
@@ -16,7 +16,7 @@
 | 1 | Your first virtual machine | [labs/lab01-first-vm](labs/lab01-first-vm) | Submitted |
 | 2 | A Windows guest, and a network | [labs/lab02-windows-vm](labs/lab02-windows-vm) | Submitted |
 | 3 | Teardown | [labs/lab03-teardown](labs/lab03-teardown) | Submitted |
-| 4 | Partition, mirror, fail, recover | [labs/lab04-storage](labs/lab04-storage) | |
+| 4 | Partition, mirror, fail, recover | [labs/lab04-storage](labs/lab04-storage) | Submitted |
 | 5 | Encoding forensics | [labs/lab05-encoding](labs/lab05-encoding) | |
 | 6 | Live processes and memory pressure | [labs/lab06-processes](labs/lab06-processes) | |
 | 7 | CLI dojo | [labs/lab07-cli-dojo](labs/lab07-cli-dojo) | |
@@ -55,5 +55,6 @@ Week __ — ____ : [tools/____.md](tools)
 | Lab 1 | Gemini | Step-by-step VM setup guidance, README structure and wording |
 | Lab 2 | Gemini | Windows guest and NAT network setup guidance, README structure and wording |
 | Lab 3 | Claude | Part specs lookup, README structure and wording |
+| Lab 4 | Claude | Step-by-step guidance for the commands, troubleshooting (stopped apt job), README structure and wording |
 
 Declaring this costs nothing. Not declaring it, when it comes up at the defence, costs the assignment.
