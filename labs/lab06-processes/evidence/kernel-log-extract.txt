@@ -1,0 +1,19 @@
+$ sudo journalctl -k --since "20 min ago" | grep -i -E -B3 -A8 "out of memory|oom-kill"
+Nov 15 20:24:15 Innotech systemd-journald[462]: Failed to read journal file /var/log/journal/9790c1e27d874fb5a6521b52048d16e7/user-1000.journal for rotation, trying to move it out of the way: Device or resource busy
+Nov 15 20:24:27 Innotech kernel: clocksource: Long readout interval, skipping watchdog check: cs_nsec: 2341044202 wd_nsec: 2341043706
+Nov 15 20:25:48 Innotech kernel: clocksource: Long readout interval, skipping watchdog check: cs_nsec: 5338870561 wd_nsec: 5338869395
+Nov 15 20:26:06 Innotech kernel: python3 invoked oom-killer: gfp_mask=0xcc0(GFP_KERNEL), order=0, oom_score_adj=0
+Nov 15 20:26:06 Innotech kernel: CPU: 2 UID: 0 PID: 1731 Comm: python3 Not tainted 7.0.0-38-generic #38-Ubuntu PREEMPT(lazy) 
+Nov 15 20:26:06 Innotech kernel: Hardware name: innotek GmbH VirtualBox/VirtualBox, BIOS VirtualBox 12/01/2006
+Nov 15 20:26:06 Innotech kernel: Call Trace:
+Nov 15 20:26:06 Innotech kernel:  <TASK>
+Nov 15 20:26:06 Innotech kernel:  show_stack+0x49/0x60
+Nov 15 20:26:06 Innotech kernel:  dump_stack_lvl+0x5f/0x90
+Nov 15 20:26:06 Innotech kernel:  dump_stack+0x10/0x18
+Nov 15 20:26:06 Innotech kernel:  dump_header+0x48/0x1c7
+--
+Nov 15 20:26:06 Innotech kernel: Tasks state (memory values in pages):
+Nov 15 20:26:06 Innotech kernel: [  pid  ]   uid  tgid total_vm      rss rss_anon rss_file rss_shmem pgtables_bytes swapents oom_score_adj name
+Nov 15 20:26:06 Innotech kernel: [   1731]     0  1731   388673   103848   102117     1731         0   901120        0             0 python3
+Nov 15 20:26:06 Innotech kernel: oom-kill:constraint=CONSTRAINT_MEMCG,nodemask=(null),cpuset=/,mems_allowed=0,oom_memcg=/system.slice/run-p1731-i4685.scope,task_memcg=/system.slice/run-p1731-i4685.scope,task=python3,pid=1731,uid=0
+Nov 15 20:26:06 Innotech kernel: Memory cgroup out of memory: Killed process 1731 (python3) total-vm:1554692kB, anon-rss:408468kB, file-rss:6924kB, shmem-rss:0kB, UID:0 pgtables:880kB oom_score_adj:0
