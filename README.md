@@ -17,7 +17,7 @@
 | 2 | A Windows guest, and a network | [labs/lab02-windows-vm](labs/lab02-windows-vm) | Submitted |
 | 3 | Teardown | [labs/lab03-teardown](labs/lab03-teardown) | Submitted |
 | 4 | Partition, mirror, fail, recover | [labs/lab04-storage](labs/lab04-storage) | Submitted |
-| 5 | Encoding forensics | [labs/lab05-encoding](labs/lab05-encoding) | |
+| 5 | Encoding forensics | [labs/lab05-encoding](labs/lab05-encoding) | Submitted |
 | 6 | Live processes and memory pressure | [labs/lab06-processes](labs/lab06-processes) | |
 | 7 | CLI dojo | [labs/lab07-cli-dojo](labs/lab07-cli-dojo) | |
 | 8 | Bandit and your first bash script | [labs/lab08-bandit](labs/lab08-bandit) | |
@@ -56,5 +56,6 @@ Week __ — ____ : [tools/____.md](tools)
 | Lab 2 | Gemini | Windows guest and NAT network setup guidance, README structure and wording |
 | Lab 3 | Claude | Part specs lookup, README structure and wording |
 | Lab 4 | Claude | Step-by-step guidance for the commands, troubleshooting (stopped apt job), README structure and wording |
+| Lab 5 | Claude | Step-by-step guidance for the commands, byte-level diagnosis check, README structure and wording |
 
 Declaring this costs nothing. Not declaring it, when it comes up at the defence, costs the assignment.

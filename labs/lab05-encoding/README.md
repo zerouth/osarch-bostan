@@ -6,7 +6,7 @@ Name: Bostan Temirlan (no pair) · Date: 15.11.2026 · Tools: Git Bash (Git for 
 
 `staff-broken.csv`, copied unchanged to `evidence/staff-broken.csv` (`cmp` with the downloaded file: identical).
 
-- **Excel (double-click):** Russian names correct, Kazakh letters wrong (`Ә→Ј`, `Қ→Ќ`, `Ө→Ґ`, `ғ→ѓ`: `Јбдірахманова`, `Ќасымов`, `Ґскемен`). Columns split correctly.
+- **Excel (double-click):** Russian names correct, Kazakh letters wrong (`Ә→Ј`, `Қ→Ќ`, `Ө→Ґ`, `Ұ→ў`, `Ү→Ї`, `ғ→є`: `Јбдірахманова`, `Ќасымов`, `Ґскемен`). Columns split correctly.
 - **LibreOffice Calc:** import dialog default Character set "Automatic" → it guessed **Cyrillic (Windows-1251)**; separator detected as `;`. Same result as Excel: Russian correct, Kazakh wrong.
 - **Terminal (`cat`):** Cyrillic letters shown as unreadable blocks — the terminal expects UTF-8, and single-byte codes are not valid UTF-8.
 
