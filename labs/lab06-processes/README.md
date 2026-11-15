@@ -83,7 +83,7 @@ lrwx------+1 root root 64 Nov 15 19:53 4 -> socket:[13225]
 
 ## Part 2 — Memory pressure
 
-Guest RAM: 4096 MB lowered to **2048 MB** in Settings → System while the VM was off, after snapshot `before-lab6` (the guest then sees 1.6 Gi). Swap: **none** (`Swap: 0B`, `swapon --show` printed nothing).
+Guest RAM: 4096 MB lowered to **2048 MB** in Settings → System while the VM was off, after snapshot `before-lab6` (the guest then sees 1.6 Gi). Swap: **none** at first (`Swap: 0B`, `swapon --show` printed nothing). Runs 1–4 were done without swap. For run 5 I added a temporary 1 GB swap file to watch the swap figure the brief asks about.
 
 ```
 $ free -h
@@ -137,14 +137,37 @@ date +%T; python3 -c "a = b'x' * (1500 * 1024 * 1024)"; date +%T
 date +%T; sudo systemd-run --scope -p MemoryMax=400M -p MemorySwapMax=0 python3 -c "a = b'x' * (1500 * 1024 * 1024)"; date +%T
 ```
 
-For runs 3 and 4 the recording loop also called `sync`, so the file is written to disk every 3 seconds even if the guest hangs.
+Run 5, with a temporary 1 GB swap file (removed afterwards):
 
-### Before / during / after (run 1, stress-ng 120%)
+```bash
+sudo fallocate -l 1G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+{ echo '$ swapon --show'; swapon --show; echo '$ free -h'; echo "=== BEFORE run 5 (1 GB swap file) $(date) ==="; free -h; } >> memory-pressure.txt
+date +%T; stress-ng --vm 2 --vm-bytes 120% --vm-method flip --timeout 60s; date +%T
+# afterwards
+sudo swapoff /swapfile
+sudo rm /swapfile
+```
+
+For runs 3, 4 and 5 the recording loop also called `sync`, so the file is written to disk every 3 seconds even if the guest hangs.
+
+### Before / during / after
+
+Run 5, stress-ng 120% with 1 GB swap:
+
+| | Before (20:47:38) | During (worst, 20:49:03) | After (20:50:25) |
+| --- | --- | --- | --- |
+| Available | 1.2Gi | 647Mi (lowest 457Mi at 20:48:59) | 1.2Gi |
+| Swap used | 0B | 294Mi | 24Ki |
+
+Run 1, stress-ng 120% without swap:
 
 | | Before (19:58:23) | During (worst, 20:06:49) | After (20:08:50) |
 | --- | --- | --- | --- |
 | Available | 1.2Gi | 61Mi | 1.2Gi |
-| Swap used | 0B | 0B | 0B |
+| Swap used | 0B (no swap) | 0B (no swap) | 0B (no swap) |
 
 ### What happened
 
@@ -162,9 +185,23 @@ stress-ng: info:  [2014] successful run completed in 1 min 46.71 secs
 
 - **70% (20:02:15–20:03:40):** available went down to 614Mi. The run took 1 min 25 s instead of 60 s, and the recording has a gap from 20:02:17 to 20:03:40: the `free` loop, which should print every 3 s, did not get CPU time for 83 s.
 - **90% (20:04:01–20:05:11):** available down to 423Mi (20:04:21). buff/cache shrank from 437Mi to 371Mi: the kernel dropped file cache to make room.
-- **120% (20:05:34–20:07:21):** available fell to **74Mi at 20:05:39** and stayed at 61–72Mi. Swap did not grow because there is no swap, so the only thing the kernel could free was cache: buff/cache fell from 371Mi to 123Mi. The guest became very slow. The recording jumps 20:05:54 → 20:06:15 and 20:06:49 → 20:07:21 (21 s and 32 s instead of 3 s), and the run took 1 min 46 s instead of 90 s. stress-ng reported `passed`: **no process was killed**, and `journalctl -k` had no OOM line.
+- **120% (20:05:34–20:07:21):** available fell to **74Mi at 20:05:39** and dropped to 61–72Mi again at 20:05:43, 20:05:54 and 20:06:49 (in between it rose for a moment while stress-ng restarted its memory blocks). Swap did not grow because there is no swap, so the only thing the kernel could free was cache: buff/cache fell from 371Mi to 123Mi. The guest became very slow. The recording jumps 20:05:54 → 20:06:15 and 20:06:49 → 20:07:21 (21 s and 32 s instead of 3 s), and the run took 1 min 46 s instead of 90 s. stress-ng reported `passed`: **no process was killed**, and `journalctl -k` had no OOM line.
 - **Run 2, 150% with `--vm-keep` (about 20:10):** the guest froze completely. Both SSH sessions and the VM console stopped responding for more than 4 minutes, so the VM was reset (Machine → Reset). The recording of this run was not saved, most likely because the data had not been written to disk before the reset. After the reboot, `sudo journalctl -k -b -1 | grep -i -E "out of memory|oom-kill|killed process"` returned nothing.
 - **Run 3, python 1.5 GB (20:19:42–20:19:45):** used jumped to 1.5Gi and available to **101Mi at 20:19:45**. That is the last line in the file: the guest froze again and was reset. `sudo journalctl -k --since "45 min ago" | grep ...` returned nothing, so the OOM killer never ran.
+- **Run 5, 120% with 1 GB swap (20:48:45–20:49:56):** this time the guest started swapping. Swap used went 0B → 17Mi (20:48:56) → 27Mi (20:48:59) → **294Mi (20:49:03)**, then fell back to 17Mi and 24Ki, most likely as stress-ng released and re-mapped its blocks. Available went down to 457Mi and buff/cache from 735Mi to 523Mi. The guest slowed down but did not freeze: the recording has one 14 s gap (20:48:42 → 20:48:56), the run took 1 min 11 s instead of 60 s, and stress-ng reported `passed`. No process was killed and `sudo journalctl -k --since "10 min ago" | grep ...` printed nothing. With swap the kernel could move idle anonymous pages to disk instead of throwing out program code, so it did not get stuck.
+
+```
+$ date +%T; stress-ng --vm 2 --vm-bytes 120% --vm-method flip --timeout 60s; date +%T
+20:48:45
+stress-ng: info:  [1776] setting to a 1 min run per stressor
+stress-ng: info:  [1776] dispatching hogs: 2 vm
+stress-ng: info:  [1777] vm: using 394.80MB per stressor instance (total 789.60MB of 658MB available memory)
+stress-ng: info:  [1776] passed: 2: vm (2)
+stress-ng: info:  [1776] failed: 0
+stress-ng: info:  [1776] successful run completed in 1 min 11.15 secs
+20:49:56
+```
+
 - **Run 4, cgroup 400 MB (20:26:04):** `Killed` after two seconds (20:26:06). The guest stayed responsive; used went 388Mi → 671Mi (20:26:06) → 418Mi (20:26:09).
 
 ```
@@ -175,7 +212,7 @@ Killed                     sudo systemd-run --scope -p MemoryMax=400M -p MemoryS
 20:26:06
 ```
 
-**Why the whole-system runs froze instead of being killed.** Without swap, anonymous memory (what stress-ng and python allocate) cannot be moved out of RAM. The only memory the kernel can free is file cache, and that includes the code of running programs. The kernel calls the OOM killer only when reclaim finds nothing at all to free. Before that point it keeps throwing out program code that is needed again a moment later and reading it back from disk: thrashing. With 1.6 GiB and no swap this went on for minutes, which is what the time gaps show. The `clocksource: Long readout interval` lines at 20:24–20:25 in the kernel log are leftovers of these stalls: the kernel noticed its clock had not been read for 2–5 s.
+**Why the whole-system runs froze instead of being killed.** Without swap, anonymous memory (what stress-ng and python allocate) cannot be moved out of RAM. The only memory the kernel can free is file cache, and that includes the code of running programs. The kernel calls the OOM killer only when reclaim finds nothing at all to free. Before that point it keeps throwing out program code that is needed again a moment later and reading it back from disk: thrashing. With 1.6 GiB and no swap this went on for minutes, which is what the time gaps show. The `clocksource: Long readout interval` lines at 20:24–20:25 in the kernel log are most likely leftovers of these stalls: the clock watchdog saw a 2–5 s gap where it expected a short one.
 
 ### What the kernel did
 
@@ -208,7 +245,7 @@ At line:1 char:1
 
 No events: the Windows guest never ran low on memory. Windows does not kill processes like the Linux OOM killer. When the commit charge gets close to the commit limit (RAM plus page file), new allocations fail and the Resource-Exhaustion-Detector writes **event 2004** to the System log, "Windows successfully diagnosed a low virtual memory condition", naming the processes that used the most memory. On this guest that would need something like Sysinternals Testlimit pushing the commit charge up, which I did not run.
 
-After the experiment the Ubuntu guest was powered off and its RAM set back to 4096 MB. The `before-lab6` snapshot was kept but not restored, so the installed packages and `~/lab06` stay in place.
+After the experiment the swap file was switched off and deleted, the Ubuntu guest was powered off and its RAM set back to 4096 MB. The `before-lab6` snapshot was kept but not restored, so the installed packages and `~/lab06` stay in place.
 
 ## What did not work the first time
 
@@ -239,5 +276,5 @@ SIGILL means "illegal instruction": the default vm method executed a CPU instruc
 - [evidence/process-explorer.png](evidence/process-explorer.png) — Process Explorer: the same PID 1876 in the tree with Private Bytes, Working Set, WS Private, Handles, Threads, and its handles in the lower pane
 - [evidence/process-explorer-image.png](evidence/process-explorer-image.png) — Properties → Image: parent services.exe (860), command line, user SYSTEM, start time
 - [evidence/htop.png](evidence/htop.png) — htop tree on Ubuntu: VBoxService PID 1194 with VIRT, RES, SHR, CPU%, MEM% and its threads
-- [evidence/memory-pressure.txt](evidence/memory-pressure.txt) — `free -h` every 3 s: before, during runs 1, 3 and 4, and after, each with a time
+- [evidence/memory-pressure.txt](evidence/memory-pressure.txt) — `free -h` every 3 s: before, during and after, each with a time; runs 1, 3 and 4 without swap, run 5 with 1 GB swap (swap used up to 294Mi)
 - [evidence/kernel-log-extract.txt](evidence/kernel-log-extract.txt) — kernel log: the OOM killer killed python3 (PID 1731) at 20:26:06
