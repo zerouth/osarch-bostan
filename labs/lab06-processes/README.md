@@ -126,7 +126,7 @@ Then `Ctrl+C` in the recording terminal and:
 { echo '$ free -h'; echo "=== AFTER $(date) ==="; free -h; } >> memory-pressure.txt
 ```
 
-The 120% run filled the memory but the kernel killed nothing, so three more runs followed (all in `memory-pressure.txt`, each marked with its own command line):
+The 120% run filled the memory but the kernel killed nothing, so three more runs without swap followed (all in `memory-pressure.txt`, each marked with its own command line):
 
 ```bash
 # run 2: workers keep their memory instead of releasing it
@@ -188,7 +188,19 @@ stress-ng: info:  [2014] successful run completed in 1 min 46.71 secs
 - **120% (20:05:34–20:07:21):** available fell to **74Mi at 20:05:39** and dropped to 61–72Mi again at 20:05:43, 20:05:54 and 20:06:49 (in between it rose for a moment while stress-ng restarted its memory blocks). Swap did not grow because there is no swap, so the only thing the kernel could free was cache: buff/cache fell from 371Mi to 123Mi. The guest became very slow. The recording jumps 20:05:54 → 20:06:15 and 20:06:49 → 20:07:21 (21 s and 32 s instead of 3 s), and the run took 1 min 46 s instead of 90 s. stress-ng reported `passed`: **no process was killed**, and `journalctl -k` had no OOM line.
 - **Run 2, 150% with `--vm-keep` (about 20:10):** the guest froze completely. Both SSH sessions and the VM console stopped responding for more than 4 minutes, so the VM was reset (Machine → Reset). The recording of this run was not saved, most likely because the data had not been written to disk before the reset. After the reboot, `sudo journalctl -k -b -1 | grep -i -E "out of memory|oom-kill|killed process"` returned nothing.
 - **Run 3, python 1.5 GB (20:19:42–20:19:45):** used jumped to 1.5Gi and available to **101Mi at 20:19:45**. That is the last line in the file: the guest froze again and was reset. `sudo journalctl -k --since "45 min ago" | grep ...` returned nothing, so the OOM killer never ran.
-- **Run 5, 120% with 1 GB swap (20:48:45–20:49:56):** this time the guest started swapping. Swap used went 0B → 17Mi (20:48:56) → 27Mi (20:48:59) → **294Mi (20:49:03)**, then fell back to 17Mi and 24Ki, most likely as stress-ng released and re-mapped its blocks. Available went down to 457Mi and buff/cache from 735Mi to 523Mi. The guest slowed down but did not freeze: the recording has one 14 s gap (20:48:42 → 20:48:56), the run took 1 min 11 s instead of 60 s, and stress-ng reported `passed`. No process was killed and `sudo journalctl -k --since "10 min ago" | grep ...` printed nothing. With swap the kernel could move idle anonymous pages to disk instead of throwing out program code, so it did not get stuck.
+- **Run 4, cgroup 400 MB (20:26:04):** `Killed` after two seconds (20:26:06). The guest stayed responsive; used went 388Mi → 671Mi (20:26:06) → 418Mi (20:26:09).
+
+```
+$ date +%T; sudo systemd-run --scope -p MemoryMax=400M -p MemorySwapMax=0 python3 -c "a = b'x' * (1500 * 1024 * 1024)"; date +%T
+20:26:04
+Running as unit: run-p1731-i4685.scope; invocation ID: 94005c19ff314a8b8df1987986b248a0
+Killed                     sudo systemd-run --scope -p MemoryMax=400M -p MemorySwapMax=0 python3 -c "a = b'x' * (1500 * 1024 * 1024)"
+20:26:06
+```
+
+**Why the whole-system runs froze instead of being killed.** Without swap, anonymous memory (what stress-ng and python allocate) cannot be moved out of RAM. The only memory the kernel can free is file cache, and that includes the code of running programs. The kernel calls the OOM killer only when reclaim finds nothing at all to free. Before that point it keeps throwing out program code that is needed again a moment later and reading it back from disk: thrashing. With 1.6 GiB and no swap this went on for minutes, which is what the time gaps show. The `clocksource: Long readout interval` lines at 20:24–20:25 in the kernel log mean the clock watchdog saw 2–5 s gaps where it expected a short one. They come after the last reset, with nothing running in the guest, so most likely the host laptop itself (8 GB RAM) was short of resources at that moment and did not run the guest's vCPUs.
+
+**Run 5, 120% with 1 GB swap (20:48:45–20:49:56).** This time the guest started swapping. Swap used went 0B → 17Mi (20:48:56) → 27Mi (20:48:59) → **294Mi (20:49:03)**, then fell back to 17Mi and 24Ki, most likely as stress-ng released and re-mapped its blocks. Available went down to 457Mi and buff/cache from 735Mi to 523Mi. The guest slowed down but did not freeze: the recording has one 14 s gap (20:48:42 → 20:48:56), the run took 1 min 11 s instead of 60 s, and stress-ng reported `passed`. No process was killed and `sudo journalctl -k --since "10 min ago" | grep ...` printed nothing. With swap the kernel could move idle anonymous pages to disk instead of throwing out program code, so it did not get stuck.
 
 ```
 $ date +%T; stress-ng --vm 2 --vm-bytes 120% --vm-method flip --timeout 60s; date +%T
@@ -201,18 +213,6 @@ stress-ng: info:  [1776] failed: 0
 stress-ng: info:  [1776] successful run completed in 1 min 11.15 secs
 20:49:56
 ```
-
-- **Run 4, cgroup 400 MB (20:26:04):** `Killed` after two seconds (20:26:06). The guest stayed responsive; used went 388Mi → 671Mi (20:26:06) → 418Mi (20:26:09).
-
-```
-$ date +%T; sudo systemd-run --scope -p MemoryMax=400M -p MemorySwapMax=0 python3 -c "a = b'x' * (1500 * 1024 * 1024)"; date +%T
-20:26:04
-Running as unit: run-p1731-i4685.scope; invocation ID: 94005c19ff314a8b8df1987986b248a0
-Killed                     sudo systemd-run --scope -p MemoryMax=400M -p MemorySwapMax=0 python3 -c "a = b'x' * (1500 * 1024 * 1024)"
-20:26:06
-```
-
-**Why the whole-system runs froze instead of being killed.** Without swap, anonymous memory (what stress-ng and python allocate) cannot be moved out of RAM. The only memory the kernel can free is file cache, and that includes the code of running programs. The kernel calls the OOM killer only when reclaim finds nothing at all to free. Before that point it keeps throwing out program code that is needed again a moment later and reading it back from disk: thrashing. With 1.6 GiB and no swap this went on for minutes, which is what the time gaps show. The `clocksource: Long readout interval` lines at 20:24–20:25 in the kernel log are most likely leftovers of these stalls: the clock watchdog saw a 2–5 s gap where it expected a short one.
 
 ### What the kernel did
 
@@ -266,9 +266,9 @@ stress-ng: info:  [1749] unsuccessful run completed in 4.25 secs
 
 SIGILL means "illegal instruction": the default vm method executed a CPU instruction that the VirtualBox virtual CPU does not support. The bytes at the crash address start with `c5 f9 90`, which looks like an AVX-512 mask instruction, but I did not confirm which one. Choosing a plain method, `--vm-method flip`, fixed it: the next run printed `passed: 1` and `successful run completed`.
 
-**3. Filling the whole guest froze it instead of producing an OOM line.** Runs 2 and 3 hung the guest for minutes and I had to reset it twice. The first reset also lost the unsaved part of the recording. The reason is the thrashing described above. Fixes: `sync` in the recording loop so nothing is lost on a hang, and run 4 in a cgroup with a memory limit, which got the OOM killer in two seconds.
+**3. Filling the whole guest froze it instead of producing an OOM line.** Runs 2 and 3 hung the guest for minutes and I had to reset it twice. Right after the second reset it hung once more with no load at all, and I reset it a third time. The first reset also lost the unsaved part of the recording. The reason is the thrashing described above. Fixes: `sync` in the recording loop so nothing is lost on a hang, and run 4 in a cgroup with a memory limit, which got the OOM killer in two seconds.
 
-**4. Restarts changed the PIDs.** In the middle of Part 1 the laptop had to be restarted, and later the Ubuntu guest. The first Task Manager screenshot (PID 1828) belonged to a process that no longer existed, so it was retaken (PID 1876), and the Ubuntu PID changed 2351 → 1102 → 1194. All three tools in the final evidence come from the same boot.
+**4. Restarts changed the PIDs.** In the middle of Part 1 the laptop had to be restarted, and later the Ubuntu guest. The first Task Manager screenshot (PID 1828) belonged to a process that no longer existed, so it was retaken (PID 1876), and the Ubuntu PID changed 2351 → 1102 → 1194. In the final evidence Task Manager and Process Explorer show the same process (PID 1876) from the same Windows boot.
 
 ## Evidence
 
