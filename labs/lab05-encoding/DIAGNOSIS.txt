@@ -1,0 +1,4 @@
+Encoding: KZ-1048 (RK1048 in iconv) — one byte per letter (Ф = D4, а = E0); Ә is the single byte A3 (in Windows-1251 A3 = Ј, what Excel showed); iconv -f RK1048 reads Russian and Kazakh names correctly, WINDOWS-1251 breaks Kazakh letters
+Line ending: CRLF — line 1 ends with 0D 0A (offset 0x24-0x25)
+BOM: no — file starts with 49 44 ("ID")
+Separator: ; — byte 3B between fields
