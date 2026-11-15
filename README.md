@@ -33,7 +33,7 @@
 | # | Title | Folder | Submitted |
 | :--- | :--- | :--- | :--- |
 | 1 | VM build document | [tickets/ticket1-vm-build-doc](tickets/ticket1-vm-build-doc) | Submitted |
-| 2 | Office hardware specification | [tickets/ticket2-office-spec](tickets/ticket2-office-spec) | |
+| 2 | Office hardware specification | [tickets/ticket2-office-spec](tickets/ticket2-office-spec) | Submitted |
 | 3 | Network fault diagnosis | [tickets/ticket3-network-fault](tickets/ticket3-network-fault) | |
 | 4 | HR staff report script | [tickets/ticket4-hr-csv](tickets/ticket4-hr-csv) | |
 | 5 | Onboarding and offboarding | [tickets/ticket5-onboarding](tickets/ticket5-onboarding) | |
@@ -58,5 +58,6 @@ Week __ — ____ : [tools/____.md](tools)
 | Lab 4 | Claude | Step-by-step guidance for the commands, troubleshooting (stopped apt job), README structure and wording |
 | Lab 5 | Claude | Step-by-step guidance for the commands, byte-level diagnosis check, README structure and wording |
 | Lab 6 | Claude | Step-by-step guidance for the commands, troubleshooting (stress-ng SIGILL, guest freezes without swap), README structure and wording |
+| Ticket 2 | Claude | Collecting Shop.kz prices, compatibility checks on PCPartPicker, builds.md / README structure and wording |
 
 Declaring this costs nothing. Not declaring it, when it comes up at the defence, costs the assignment.

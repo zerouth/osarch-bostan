@@ -1,0 +1,50 @@
+role,component,model,price_kzt,source,date
+accountant,CPU,AMD Ryzen 5 PRO 5650G AM4 OEM,86990,https://shop.kz/offer/protsessor-amd-ryzen-5-pro-5650g-am4-oem/,2026-11-16
+accountant,Motherboard,MSI A520M-A Pro AM4,30590,https://shop.kz/offer/materinskaya-plata-msi-a520m-a-pro-am4/,2026-11-16
+accountant,Memory,AMD Radeon R9 Gamer DDR4 16GB 3200 MHz (1x16GB),72990,https://shop.kz/offer/ddr-4-dimm-16gb-3200mhz-pc25600-amd-radeon-r9-gamer-r9416g3206u2s-u-box/,2026-11-16
+accountant,CPU cooler,DeepCool AK400,13990,https://shop.kz/offer/kuler-deepcool-ak400-lga1700/,2026-11-16
+accountant,SSD,MSI Spatium M470 Pro 1TB M.2 PCIe 4.0,96990,https://shop.kz/offer/ssd-nakopitel-1-tb-msi-spatium-m470-pro-m-2-pcie-4-0/,2026-11-16
+accountant,Case,Lian Li A3-mATX White,32590,https://shop.kz/offer/korpus-lian-li-a3-matx-white/,2026-11-16
+accountant,PSU,MSI MAG A550BN 550W 80+ Bronze,22590,https://shop.kz/offer/blok-pitaniya-atx-550-w-msi-mag-a550bn/,2026-11-16
+accountant,Monitor,"iiyama ProLite XUB2493HSU-B7 23.8 IPS height-adjustable""",74990,https://shop.kz/offer/monitor-24-iiyama-prolite-xub2493hsu-b7-black/,2026-11-16
+accountant,Operating system,Microsoft Windows 11 Professional 64-bit (OEM DVD),102990,https://shop.kz/offer/microsoft-windows-11-professional-64-bit-dvd/,2026-11-16
+accountant,Keyboard and mouse,Logitech MK120,8990,https://shop.kz/offer/klaviatura-logitech-mk120-black-usb-mysh/,2026-11-16
+accountant,UPS,APC Back-UPS BV650I-GR 650VA,34700,https://shop.kz/offer/ups-apc-back-bv650i-gr/,2026-11-16
+accountant,TOTAL,,578400,,
+sales,CPU,AMD Ryzen 5 PRO 5650G AM4 OEM,86990,https://shop.kz/offer/protsessor-amd-ryzen-5-pro-5650g-am4-oem/,2026-11-16
+sales,Motherboard,MSI A520M-A Pro AM4,30590,https://shop.kz/offer/materinskaya-plata-msi-a520m-a-pro-am4/,2026-11-16
+sales,Memory,Geil Pristine DDR4 32GB 3200 MHz (2x16GB kit),139990,https://shop.kz/offer/ddr-4-dimm-32-gb-3200-mhz-geil-pristine-series-2x-16-gb-kit-box-gp432gb3200c22dc/,2026-11-16
+sales,CPU cooler,DeepCool AK400,13990,https://shop.kz/offer/kuler-deepcool-ak400-lga1700/,2026-11-16
+sales,SSD,Netac NV3000 1TB M.2 PCIe 3.0,74990,https://shop.kz/offer/ssd-nakopitel-1-tb-netac-nv3000-m-2-pcie-3-0/,2026-11-16
+sales,Case,Lian Li A3-mATX White,32590,https://shop.kz/offer/korpus-lian-li-a3-matx-white/,2026-11-16
+sales,PSU,MSI MAG A550BN 550W 80+ Bronze,22590,https://shop.kz/offer/blok-pitaniya-atx-550-w-msi-mag-a550bn/,2026-11-16
+sales,Monitor,"Samsung Essential S3 LS24D304GAIXCI 24 IPS""",49990,https://shop.kz/offer/monitor-24-samsung-essential-s3-ls24d304gaixci-black/,2026-11-16
+sales,Operating system,Microsoft Windows 11 Professional 64-bit (OEM DVD),102990,https://shop.kz/offer/microsoft-windows-11-professional-64-bit-dvd/,2026-11-16
+sales,Keyboard and mouse,Logitech MK120,8990,https://shop.kz/offer/klaviatura-logitech-mk120-black-usb-mysh/,2026-11-16
+sales,Webcam,Logitech Brio 100 Graphite,20890,https://shop.kz/offer/web-kamera-logitech-brio-100-graphite/,2026-11-16
+sales,TOTAL,,584590,,
+webdev,CPU,AMD Ryzen 7 7700 AM5 OEM,100990,https://shop.kz/offer/protsessor-amd-ryzen-7-7700-am5-oem/,2026-11-16
+webdev,Motherboard,MSI PRO B650M-P AM5,61990,https://shop.kz/offer/materinskaya-plata-msi-pro-b650m-p-am5/,2026-11-16
+webdev,Memory,"2x AMD Radeon R5 DDR5 16GB 5200 MHz (R5516G5200U1S-U), 32GB total",245980,https://shop.kz/offer/ddr-5-dimm-16-gb-5200-mhz-amd-radeon-r5-entertainment-series-box-r5516g5200u1s-u/,2026-11-16
+webdev,CPU cooler,DeepCool AK400,13990,https://shop.kz/offer/kuler-deepcool-ak400-lga1700/,2026-11-16
+webdev,SSD,Netac NV3000 1TB M.2 PCIe 3.0,74990,https://shop.kz/offer/ssd-nakopitel-1-tb-netac-nv3000-m-2-pcie-3-0/,2026-11-16
+webdev,Case,Lian Li A3-mATX White,32590,https://shop.kz/offer/korpus-lian-li-a3-matx-white/,2026-11-16
+webdev,PSU,MSI MAG A550BN 550W 80+ Bronze,22590,https://shop.kz/offer/blok-pitaniya-atx-550-w-msi-mag-a550bn/,2026-11-16
+webdev,Monitor,"iiyama ProLite XUB2493HSU-B7 23.8 IPS height-adjustable""",74990,https://shop.kz/offer/monitor-24-iiyama-prolite-xub2493hsu-b7-black/,2026-11-16
+webdev,Keyboard and mouse,Logitech MK120,8990,https://shop.kz/offer/klaviatura-logitech-mk120-black-usb-mysh/,2026-11-16
+webdev,Operating system,"Ubuntu 26.04 LTS (free, GPL licensed)",0,https://ubuntu.com/download/desktop,2026-11-16
+webdev,TOTAL,,637100,,
+designer,CPU,AMD Ryzen 7 7700 AM5 OEM,100990,https://shop.kz/offer/protsessor-amd-ryzen-7-7700-am5-oem/,2026-11-16
+designer,Motherboard,MSI PRO B650M-P AM5,61990,https://shop.kz/offer/materinskaya-plata-msi-pro-b650m-p-am5/,2026-11-16
+designer,Memory,"2x AMD Radeon R5 DDR5 16GB 5200 MHz (R5516G5200U1S-U), 32GB total",245980,https://shop.kz/offer/ddr-5-dimm-16-gb-5200-mhz-amd-radeon-r5-entertainment-series-box-r5516g5200u1s-u/,2026-11-16
+designer,CPU cooler,DeepCool AK400,13990,https://shop.kz/offer/kuler-deepcool-ak400-lga1700/,2026-11-16
+designer,SSD,MSI Spatium M470 Pro 1TB M.2 PCIe 4.0,96990,https://shop.kz/offer/ssd-nakopitel-1-tb-msi-spatium-m470-pro-m-2-pcie-4-0/,2026-11-16
+designer,GPU,ASUS RTX 5060 Prime 8GB,309590,https://shop.kz/offer/videokarta-asus-rtx-5060-prime-8-gb-geforce-rtx-5060/,2026-11-16
+designer,Case,Lian Li A3-mATX White,32590,https://shop.kz/offer/korpus-lian-li-a3-matx-white/,2026-11-16
+designer,PSU,MSI MAG A650BN 650W 80+ Bronze,24590,https://shop.kz/offer/blok-pitaniya-atx-650-w-msi-mag-a650bn/,2026-11-16
+designer,Monitor,"Xiaomi 4K Monitor A27Ui 27 IPS 100% sRGB""",144990,https://shop.kz/offer/monitor-27-xiaomi-a27ui-black/,2026-11-16
+designer,Operating system,Microsoft Windows 11 Professional 64-bit (OEM DVD),102990,https://shop.kz/offer/microsoft-windows-11-professional-64-bit-dvd/,2026-11-16
+designer,Keyboard and mouse,Logitech MK120,8990,https://shop.kz/offer/klaviatura-logitech-mk120-black-usb-mysh/,2026-11-16
+designer,TOTAL,,1143680,,
+ALL,GRAND TOTAL,,2943770,,
+ALL,RESERVE (3000000 - grand total),,56230,,
